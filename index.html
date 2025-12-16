@@ -4,40 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GC Digital – Formation Marketing Digital</title>
+
   <style>
-    .signup {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 400px;
-      margin-top: 20px;
-    }
-
-    .signup input {
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    .signup button,
-    .btn {
-      background-color: var(--blue);
-      color: var(--white);
-      padding: 14px;
-      border-radius: 999px;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-    }
-
-    .signup button:hover,
-    .btn:hover {
-      opacity: 0.9;
-    }
-
     :root {
       --black: #000000;
       --dark-gray: #1d1d1f;
@@ -47,60 +15,53 @@
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     body {
-      background-color: var(--gray);
+      background: var(--gray);
       color: var(--dark-gray);
       line-height: 1.6;
     }
 
     header {
-      background-color: var(--white);
-      padding: 60px 20px;
+      background: var(--white);
+      padding: 80px 20px 60px;
       text-align: center;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #e5e5e5;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       font-weight: 600;
-      margin-bottom: 10px;
+      color: var(--black);
+      margin-bottom: 15px;
     }
 
     header p {
-      font-size: 1.2rem;
-      max-width: 700px;
+      max-width: 800px;
       margin: 0 auto;
+      font-size: 1.2rem;
       color: #555;
     }
 
     main {
-      max-width: 1100px;
-      margin: 60px auto;
+      max-width: 1200px;
+      margin: 80px auto;
       padding: 0 20px;
     }
 
-    .intro {
-      background-color: var(--white);
-      padding: 40px;
-      border-radius: 18px;
-      margin-bottom: 50px;
-    }
-
-    .intro h2 {
-      font-size: 2rem;
-      margin-bottom: 15px;
+    .chapter {
+      margin-bottom: 80px;
     }
 
     .chapter h2 {
-      font-size: 2.2rem;
-      margin-bottom: 30px;
       text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 40px;
     }
 
     .modules {
@@ -110,203 +71,116 @@
     }
 
     .module {
-      background-color: var(--white);
-      padding: 25px;
-      border-radius: 20px;
-      transition: transform 0.25s ease;
+      background: var(--white);
+      padding: 30px;
+      border-radius: 22px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .module:hover {
-      transform: scale(1.03);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
 
     .module h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: var(--black);
     }
 
     .module p {
       font-size: 0.95rem;
-      margin-bottom: 15px;
       color: #555;
-    }
-
-    iframe {
-      width: 100%;
-      height: 200px;
-      border-radius: 14px;
-      border: none;
     }
 
     footer {
-      background-color: var(--white);
+      background: var(--white);
+      border-top: 1px solid #e5e5e5;
       text-align: center;
-      padding: 30px;
-      margin-top: 60px;
-      border-top: 1px solid #ddd;
-      font-size: 0.9rem;
+      padding: 40px 20px;
       color: #555;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
     <h1>GC Digital</h1>
-    <p>Une formation simple et claire en marketing digital, pensée pour les débutants</p>
+    <p>
+      GC Digital est une formation complète en marketing digital conçue pour les débutants
+      et les entrepreneurs qui souhaitent comprendre, structurer et lancer une stratégie
+      digitale claire et efficace. La formation est composée de 4 chapitres progressifs,
+      chacun contenant 4 modules simples et pratiques.
+    </p>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main>
-    <section class="intro">
-      <h2>À propos de la formation</h2>
-      <p>
-        GC Digital est une formation progressive pour comprendre le marketing digital sans stress.
-        Chaque module contient une vidéo explicative simple à suivre.
-      </p>
-    </section>
 
+    <!-- CHAPITRE 1 -->
     <section class="chapter">
-      <h2>Chapitre 1 – Les fondamentaux</h2>
+      <h2>Chapitre 1 – Les bases du marketing digital</h2>
       <div class="modules">
 
         <div class="module">
-          <h3>Module 1 – Bases du marketing digital</h3>
-          <p>Comprendre les bases essentielles du marketing digital.</p>
-          <iframe src="https://www.youtube.com/embed/VeuspvV7DCg" allowfullscreen></iframe>
+          <h3>Module 1 – Base du marketing digital</h3>
+          <p>Comprendre les fondamentaux du marketing digital et son fonctionnement global.</p>
         </div>
 
         <div class="module">
           <h3>Module 2 – Réseaux sociaux pour débutants</h3>
-          <p>Découvrir les réseaux sociaux et leur utilité pour un business.</p>
-          <iframe src="https://www.youtube.com/embed/nm_Lh_731Ow" allowfullscreen></iframe>
+          <p>Découvrir les réseaux sociaux et apprendre à les utiliser efficacement.</p>
         </div>
 
         <div class="module">
           <h3>Module 3 – Création de contenu efficace</h3>
-          <p>Créer du contenu clair, simple et engageant.</p>
-          <iframe src="https://www.youtube.com/embed/vPLRI3lE5sM" allowfullscreen></iframe>
+          <p>Apprendre à créer du contenu pertinent, clair et engageant.</p>
         </div>
 
         <div class="module">
           <h3>Module 4 – Lancer sa première stratégie</h3>
-          <p>Mettre en place sa toute première stratégie marketing.</p>
-          <iframe src="https://www.youtube.com/embed/v3sRh0z1M40" allowfullscreen></iframe>
+          <p>Mettre en place une première stratégie marketing étape par étape.</p>
         </div>
 
       </div>
     </section>
 
-    <!-- Chapitre intermédiaire -->
+    <!-- CHAPITRE 2 -->
     <section class="chapter">
       <h2>Chapitre 2 – Niveau intermédiaire</h2>
       <div class="modules">
+
         <div class="module">
-          <h3>Module 5 – Publicité en ligne</h3>
-          <p>Introduction à Facebook Ads et Google Ads.</p>
+          <h3>Module 1 – Construire une vraie stratégie digitale</h3>
+          <p>Structurer une stratégie digitale cohérente et orientée résultats.</p>
         </div>
+
         <div class="module">
-          <h3>Module 6 – Analyse & KPI</h3>
-          <p>Comprendre les statistiques et améliorer ses résultats.</p>
+          <h3>Module 2 – Marketing de contenu & branding</h3>
+          <p>Développer une image de marque forte grâce au contenu.</p>
         </div>
+
+        <div class="module">
+          <h3>Module 3 – Publicité en ligne (réseaux sociaux)</h3>
+          <p>Comprendre et lancer des campagnes publicitaires sur les réseaux sociaux.</p>
+        </div>
+
+        <div class="module">
+          <h3>Module 4 – Analyse des performances & optimisation</h3>
+          <p>Analyser les résultats et optimiser les actions marketing.</p>
+        </div>
+
       </div>
     </section>
 
-    <!-- Dashboard élève -->
-    <section class="intro">
-      <h2>Dashboard élève</h2>
-      <p>Progression de la formation</p>
-      <progress value="40" max="100" style="width:100%"></progress>
-      <p style="margin-top:10px;color:#555">40% complété</p>
-    </section>
-
-    <!-- Paiement Stripe -->
-    <section class="intro" style="text-align:center">
-      <h2>Paiement sécurisé</h2>
-      <p>Paiement réel via Stripe (nécessite backend)</p>
-      <button class="btn" onclick="alert('Intégration Stripe côté serveur requise')">Payer avec Stripe</button>
-    </section>
-
-    <!-- Page d'inscription -->
-    <section class="intro">
-      <h2>Inscription à la formation</h2>
-      <p>Accédez à la formation complète GC Digital (accès privé & payant).</p>
-      <form class="signup">
-        <input type="text" placeholder="Nom complet" required />
-        <input type="email" placeholder="Email" required />
-        <button type="submit">S'inscrire à la formation</button>
-      </form>
-      <p style="margin-top:10px;color:#555;font-size:0.9rem">Paiement simulé – intégration Stripe possible</p>
-    </section>
-
-    <!-- Certificat -->
-    <section class="intro" style="text-align:center">
-      <h2>Certificat de fin de formation</h2>
-      <p>Génération automatique du certificat PDF.</p>
-      <button class="btn" onclick="generateCert()">Télécharger le certificat PDF</button>
-    </section>
-    <section class="intro" style="text-align:center">
-      <h2>Certificat de fin de formation</h2>
-      <p>À la fin de la formation, vous recevez un certificat GC Digital.</p>
-      <a class="btn" href="#" onclick="alert('Certificat généré après validation de la formation')">Voir un exemple de certificat</a>
-    </section>
   </main>
 
-  <!-- Bouton WhatsApp -->
-  <a href="https://wa.me/33600000000" class="whatsapp" target="_blank">💬</a>
-
+  <!-- FOOTER -->
   <footer>
     © 2025 GC Digital – Formation Marketing Digital
   </footer>
-
-  <!-- Bouton WhatsApp -->
-  <a href="https://wa.me/33600000000" class="whatsapp" target="_blank" aria-label="Contact WhatsApp">💬</a>
-
-  <style>
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--blue);
-      color: var(--white);
-      font-size: 22px;
-      padding: 14px 16px;
-      border-radius: 50%;
-      text-decoration: none;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-
-    .whatsapp:hover {
-      opacity: 0.9;
-    }
-  </style>
-
-  <script>
-    // Accès privé simple (démo GitHub Pages)
-    const PASSWORD = "gcdigital";
-    const access = sessionStorage.getItem("gc_access");
-
-    if (!access) {
-      const input = prompt("Formation privée GC Digital 
-Entrez le mot de passe :");
-      if (input === PASSWORD) {
-        sessionStorage.setItem("gc_access", "ok");
-      } else {
-        document.body.innerHTML = `
-          <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#f5f5f7;">
-            <div style="background:white;padding:40px;border-radius:20px;text-align:center;max-width:400px;">
-              <h2>Accès refusé</h2>
-              <p style="color:#555">Cette formation est privée.</p>
-            </div>
-          </div>`;
-      }
-    }
-
-    // Simulation inscription
-    document.querySelector('.signup')?.addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Merci pour votre inscription ! Accès débloqué.');
-    });
-  </script>
 
 </body>
 </html>
