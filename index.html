@@ -3,349 +3,180 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GC Digital – Formation Marketing Digital</title>
+  <title>GC.digital – Plateforme de formation Marketing Digital</title>
 
+  <!-- ================== STYLE (APPLE-LIKE) ================== -->
   <style>
-    .pay-btn {
-      background: var(--black);
-      color: var(--white);
-      border: none;
-      padding: 16px 36px;
-      font-size: 1.1rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .pay-btn:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-
     :root {
-      --black: #000000;
-      --dark-gray: #1d1d1f;
-      --gray: #f5f5f7;
-      --white: #ffffff;
-      --blue: #0071e3;
+      --black:#000;
+      --dark:#1d1d1f;
+      --gray:#f5f5f7;
+      --white:#fff;
+      --blue:#0071e3;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 
-    body {
-      background: var(--gray);
-      color: var(--dark-gray);
-      line-height: 1.6;
-    }
+    body{background:var(--gray);color:var(--dark);line-height:1.6}
 
-    header {
-      background: var(--white);
-      padding: 80px 20px 60px;
-      text-align: center;
-      border-bottom: 1px solid #e5e5e5;
-    }
+    header{background:var(--white);padding:90px 20px 70px;text-align:center;border-bottom:1px solid #e5e5e5}
+    header h1{font-size:3.4rem;text-decoration:underline;text-underline-offset:10px;color:var(--black)}
+    header p{max-width:900px;margin:25px auto 0;font-size:1.2rem;color:#555}
 
-    header h1 {
-      font-size: 3.2rem;
-      font-weight: 600;
-      color: var(--black);
-      margin-bottom: 15px;
-      text-decoration: underline;
-      text-underline-offset: 10px;
-    }
+    main{max-width:1200px;margin:90px auto;padding:0 20px}
 
-    header p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      color: #555;
-    }
+    h2{text-align:center;font-size:2.4rem;margin-bottom:40px;text-decoration:underline;text-underline-offset:8px}
+    h3{text-decoration:underline;text-underline-offset:6px}
 
-    main {
-      max-width: 1200px;
-      margin: 80px auto;
-      padding: 0 20px;
-    }
+    .chapter{margin-bottom:90px}
+    .modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
 
-    .chapter {
-      margin-bottom: 80px;
-    }
+    .module{background:var(--white);padding:30px;border-radius:22px;transition:.3s}
+    .module:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
 
-    .chapter h2 {
-      text-align: center;
-      font-size: 2.4rem;
-      margin-bottom: 40px;
-      text-decoration: underline;
-      text-underline-offset: 8px;
-    }
+    iframe{width:100%;height:200px;border-radius:14px;border:none;margin-top:10px}
 
-    .modules {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-    }
+    .btn{background:var(--black);color:var(--white);border:none;padding:16px 36px;border-radius:999px;font-size:1.05rem;cursor:pointer}
+    .btn:hover{opacity:.9}
 
-    .module {
-      background: var(--white);
-      padding: 30px;
-      border-radius: 22px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+    progress{width:100%;height:18px}
 
-    .module:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    }
-
-    .module h3 {
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      color: var(--black);
-      text-decoration: underline;
-      text-underline-offset: 6px;
-    }
-
-    .module p {
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    footer {
-      background: var(--white);
-      border-top: 1px solid #e5e5e5;
-      text-align: center;
-      padding: 40px 20px;
-      color: #555;
-      font-size: 0.9rem;
-    }
+    footer{background:var(--white);border-top:1px solid #e5e5e5;text-align:center;padding:40px;color:#555}
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>GC Digital</h1>
-    <p>
-      GC Digital est une formation complète en marketing digital conçue pour les débutants
-      et les entrepreneurs qui souhaitent comprendre, structurer et lancer une stratégie
-      digitale claire et efficace. La formation est composée de 4 chapitres progressifs,
-      chacun contenant 4 modules simples et pratiques.
-    </p>
-  </header>
+<!-- ================== HEADER ================== -->
+<header>
+  <h1>GC.digital</h1>
+  <p>
+    GC.digital est une plateforme de formation en <strong>marketing digital engineering</strong>.
+    Elle a été conçue comme un système structuré et progressif combinant stratégie,
+    automatisation, data et performance. La formation est payante, sécurisée et pensée
+    comme une véritable montée en compétence professionnelle.
+  </p>
+</header>
 
-  <!-- MAIN CONTENT -->
-  <main>
+<main>
 
-    <!-- PAYWALL -->
-    <section class="chapter" id="paywall" style="text-align:center">
-      <h2>Accès à la formation</h2>
-      <p style="max-width:700px;margin:20px auto;color:#555">
-        Le paiement et la création de compte sont obligatoires pour accéder à la formation GC Digital.
-      </p>
+<!-- ================== PAYWALL / AUTH ================== -->
+<section class="chapter" id="paywall" style="text-align:center">
+  <h2>Accès sécurisé à la formation</h2>
+  <p style="max-width:700px;margin:20px auto;color:#555">
+    Le paiement et l'inscription sont obligatoires. Sans compte actif et paiement validé,
+    aucun contenu de formation n'est accessible.
+  </p>
 
-      <!-- AUTH FORM -->
-      <form id="authForm" style="max-width:400px;margin:30px auto">
-        <input type="email" placeholder="Email" required style="width:100%;padding:14px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
-        <input type="password" placeholder="Mot de passe" required style="width:100%;padding:14px;border-radius:12px;border:1px solid #ccc;margin-bottom:20px">
-        <button type="submit" class="pay-btn">Payer & créer mon compte</button>
-      </form>
-      <p style="font-size:0.9rem;color:#777">Paiement sécurisé Stripe (simulation frontend)</p>
-    </section>
+  <form id="authForm" style="max-width:420px;margin:40px auto">
+    <input required type="email" placeholder="Email" style="width:100%;padding:14px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
+    <input required type="password" placeholder="Mot de passe" style="width:100%;padding:14px;border-radius:12px;border:1px solid #ccc;margin-bottom:20px">
+    <button class="btn" type="submit">Payer avec Stripe & créer mon compte</button>
+  </form>
 
-    <!-- AUTH & PAYMENT FEATURES -->
-    <section class="chapter" style="text-align:center">
-      <h2>Fonctionnalités avancées</h2>
-      <div class="modules">
-        <div class="module"><h3>💳 Paiement Stripe réel</h3><p>Intégration Stripe Checkout (backend requis : Node.js / Firebase).</p></div>
-        <div class="module"><h3>👤 Compte utilisateur</h3><p>Connexion sécurisée avec email & mot de passe.</p></div>
-        <div class="module"><h3>🎥 Vidéos YouTube</h3><p>Chaque module inclut une vidéo intégrée.</p></div>
-        <div class="module"><h3>🏆 Certificat PDF</h3><p>Certificat automatique après validation de la formation.</p></div>
-        <div class="module"><h3>📱 Mobile ultra‑premium</h3><p>Design responsive optimisé mobile & tablette.</p></div>
-        <div class="module"><h3>🔐 Espace membre sécurisé</h3><p>Accès privé réservé aux utilisateurs payants.</p></div>
-      </div>
-    </section>
+  <p style="font-size:.9rem;color:#777">Stripe Checkout réel + Auth Firebase / Supabase (backend requis)</p>
+</section>
 
-    <!-- DASHBOARD EXPERIENCE -->
-    <section class="chapter" id="dashboard" style="display:none">
-      <h2>Dashboard d’expérience</h2>
-      <div class="modules">
-        <div class="module">
-          <h3>🎯 Niveau</h3>
-          <p><strong>Débutant</strong></p>
-        </div>
-        <div class="module">
-          <h3>⭐ Points d’expérience (XP)</h3>
-          <p><span id="xp">120</span> XP</p>
-        </div>
-        <div class="module">
-          <h3>📈 Progression</h3>
-          <progress value="30" max="100" style="width:100%"></progress>
-          <p style="margin-top:8px">30 % complété</p>
-        </div>
-        <div class="module">
-          <h3>🏆 Récompense</h3>
-          <p>Certificat débloqué à 100 %</p>
-        </div>
-      </div>
-    </section>
+<!-- ================== FORMATION ================== -->
+<div id="formation" style="display:none">
 
-    <!-- FORMATION (LOCKED BY DEFAULT) -->
-    <div id="formation" style="display:none">
+<!-- ================== DASHBOARD ELEVE ================== -->
+<section class="chapter" id="dashboard">
+  <h2>Dashboard élève</h2>
+  <div class="modules">
+    <div class="module"><h3>Niveau</h3><p id="level">Débutant</p></div>
+    <div class="module"><h3>Progression</h3><progress id="globalProgress" value="0" max="100"></progress><p id="progressText">0 %</p></div>
+    <div class="module"><h3>Certificat</h3><p id="cert">Bloqué</p></div>
+  </div>
+</section>
 
-    <!-- CHAPITRE 1 -->
-    <section class="chapter">
-      <h2>Chapitre 1 – Les bases du marketing digital</h2>
-      <div class="modules">
+<!-- ================== CHAPITRE 1 ================== -->
+<section class="chapter">
+<h2>Chapitre 1 – Fondamentaux</h2>
+<div class="modules">
+<div class="module"><h3>Base du marketing digital</h3></div>
+<div class="module"><h3>Réseaux sociaux pour débutants</h3></div>
+<div class="module"><h3>Création de contenu efficace</h3></div>
+<div class="module"><h3>Lancer sa première stratégie</h3></div>
+</div>
+</section>
 
-        <div class="module">
-          <h3>Module 1 – Base du marketing digital</h3>
-          <iframe src="https://www.youtube.com/embed/VeuspvV7DCg" allowfullscreen></iframe>
-          <p>Comprendre les fondamentaux du marketing digital et son fonctionnement global.</p></h3>
-          <p>Comprendre les fondamentaux du marketing digital et son fonctionnement global.</p>
-        </div>
+<section class="chapter">
+<h2>Expérience – Fin Chapitre 1</h2>
+<div class="modules">
+<div class="module"><h3>XP gagnée</h3><p>+25 %</p></div>
+<div class="module"><button class="btn" onclick="validateChapter(25)">Valider Chapitre 1</button></div>
+</div>
+</section>
 
-        <div class="module">
-          <h3>Module 2 – Réseaux sociaux pour débutants</h3>
-          <p>Découvrir les réseaux sociaux et apprendre à les utiliser efficacement.</p>
-        </div>
+<!-- ================== CHAPITRE 2 ================== -->
+<section class="chapter" id="ch2" style="display:none">
+<h2>Chapitre 2 – Intermédiaire</h2>
+<div class="modules">
+<div class="module"><h3>Construire une vraie stratégie digitale</h3></div>
+<div class="module"><h3>Marketing de contenu & branding</h3></div>
+<div class="module"><h3>Publicité en ligne</h3></div>
+<div class="module"><h3>Analyse & optimisation</h3></div>
+</div>
+</section>
 
-        <div class="module">
-          <h3>Module 3 – Création de contenu efficace</h3>
-          <p>Apprendre à créer du contenu pertinent, clair et engageant.</p>
-        </div>
+<section class="chapter" id="xp2" style="display:none">
+<h2>Expérience – Fin Chapitre 2</h2>
+<div class="modules">
+<div class="module"><h3>XP gagnée</h3><p>+25 %</p></div>
+<div class="module"><button class="btn" onclick="validateChapter(50)">Valider Chapitre 2</button></div>
+</div>
+</section>
 
-        <div class="module">
-          <h3>Module 4 – Lancer sa première stratégie</h3>
-          <p>Mettre en place une première stratégie marketing étape par étape.</p>
-        </div>
+<!-- ================== CHAPITRE 3 ================== -->
+<section class="chapter" id="ch3" style="display:none">
+<h2>Chapitre 3 – Avancé</h2>
+<div class="modules">
+<div class="module"><h3>Funnel de vente & parcours clients</h3></div>
+<div class="module"><h3>Automatisation & no-code</h3></div>
+<div class="module"><h3>Publicité avancée & scaling</h3></div>
+<div class="module"><h3>Data, optimisation & croissance durable</h3></div>
+</div>
+</section>
 
-      </div>
-    </section>
+</div>
+</main>
 
-    <!-- EXPERIENCE FIN CHAPITRE 1 -->
-    <section class="chapter">
-      <h2>Expérience – Fin du Chapitre 1</h2>
-      <div class="modules">
-        <div class="module">
-          <h3>📘 Chapitre complété</h3>
-          <p>Les bases du marketing digital</p>
-        </div>
-        <div class="module">
-          <h3>⭐ Expérience gagnée</h3>
-          <p><strong>+25 %</strong></p>
-        </div>
-        <div class="module">
-          <h3>📈 Progression globale</h3>
-          <progress value="25" max="100" style="width:100%"></progress>
-          <p style="margin-top:8px">25 % complété</p>
-        </div>
-        <div class="module">
-          <h3>🚀 Niveau</h3>
-          <p>Débutant</p>
-        </div>
-      </div>
-    </section>
+<footer>
+© 2025 GC.digital – Plateforme de formation Marketing Digital
+</footer>
 
-    <!-- EXPERIENCE FIN CHAPITRE 1 -->
-    <section class="chapter" id="xp-ch1">
-      <h2>Expérience – Fin du Chapitre 1</h2>
-      <div class="modules">
-        <div class="module"><h3>⭐ Expérience gagnée</h3><p><strong>+25 %</strong></p></div>
-        <div class="module"><h3>📈 Progression globale</h3><progress id="progress-bar" value="25" max="100" style="width:100%"></progress><p id="progress-text">25 % complété</p></div>
-        <div class="module"><h3>🔓 Déblocage</h3><button class="pay-btn" onclick="unlockChapter2()">Valider Chapitre 1</button></div>
-      </div>
-    </section>
+<!-- ================== SCRIPT ================== -->
+<script>
+let progress = localStorage.getItem('progress') ? parseInt(localStorage.getItem('progress')) : 0;
 
-    <!-- CHAPITRE 2 -->
-    <section class="chapter" id="chapter2" style="display:none">
-    <section class="chapter">
-      <h2>Chapitre 2 – Niveau intermédiaire</h2>
-      <div class="modules">
+function updateUI(){
+  document.getElementById('globalProgress').value = progress;
+  document.getElementById('progressText').innerText = progress + ' %';
 
-        <div class="module">
-          <h3>Module 1 – Construire une vraie stratégie digitale</h3>
-          <p>Structurer une stratégie digitale cohérente et orientée résultats.</p>
-        </div>
+  if(progress>=25) document.getElementById('ch2').style.display='block';
+  if(progress>=50) document.getElementById('xp2').style.display='block';
+  if(progress>=50) document.getElementById('ch3').style.display='block';
+  if(progress>=100){
+    document.getElementById('cert').innerText='Certificat débloqué';
+    document.getElementById('level').innerText='Débutant acquis';
+  }
+}
 
-        <div class="module">
-          <h3>Module 2 – Marketing de contenu & branding</h3>
-          <p>Développer une image de marque forte grâce au contenu.</p>
-        </div>
+function validateChapter(value){
+  progress=value;
+  localStorage.setItem('progress',progress);
+  updateUI();
+}
 
-        <div class="module">
-          <h3>Module 3 – Publicité en ligne (réseaux sociaux)</h3>
-          <p>Comprendre et lancer des campagnes publicitaires sur les réseaux sociaux.</p>
-        </div>
+document.getElementById('authForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('paywall').style.display='none';
+  document.getElementById('formation').style.display='block';
+  updateUI();
+});
 
-        <div class="module">
-          <h3>Module 4 – Analyse des performances & optimisation</h3>
-          <p>Analyser les résultats et optimiser les actions marketing.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- EXPERIENCE FIN CHAPITRE 2 -->
-    <section class="chapter" id="xp-ch2" style="display:none">
-      <h2>Expérience – Fin du Chapitre 2</h2>
-      <div class="modules">
-        <div class="module"><h3>⭐ Expérience gagnée</h3><p><strong>+25 %</strong></p></div>
-        <div class="module"><h3>📈 Progression globale</h3><progress id="progress-bar-2" value="50" max="100" style="width:100%"></progress><p>50 % complété</p></div>
-        <div class="module"><h3>🏆 Certificat</h3><p id="cert-status">Bloqué (100 % requis)</p></div>
-      </div>
-    </section>
-
-      </div>
-  </main>
-
-  <script>
-    let progress = localStorage.getItem('progress') ? parseInt(localStorage.getItem('progress')) : 0;
-
-    function updateDashboard() {
-      if (document.getElementById('progress-bar')) {
-        document.getElementById('progress-bar').value = progress;
-        document.getElementById('progress-text').innerText = progress + ' % complété';
-      }
-      if (progress >= 25) {
-        document.getElementById('chapter2').style.display = 'block';
-      }
-      if (progress >= 50) {
-        document.getElementById('xp-ch2').style.display = 'block';
-      }
-      if (progress >= 100) {
-        document.getElementById('cert-status').innerText = 'Certificat débloqué 🎉';
-      }
-    }
-
-    function unlockChapter2() {
-      progress = 25;
-      localStorage.setItem('progress', progress);
-      updateDashboard();
-      alert('Chapitre 1 validé – Chapitre 2 débloqué');
-    }
-
-    document.getElementById('authForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      localStorage.setItem('progress', 25);
-      progress = 25;
-      document.getElementById('paywall').style.display = 'none';
-      document.getElementById('formation').style.display = 'block';
-      document.getElementById('dashboard').style.display = 'block';
-      updateDashboard();
-    });
-
-    updateDashboard();
-  </script>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2025 GC Digital – Formation Marketing Digital
-  </footer>
+updateUI();
+</script>
 
 </body>
 </html>
