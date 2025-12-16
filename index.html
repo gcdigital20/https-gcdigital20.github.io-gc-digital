@@ -5,6 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GC Digital – Formation Marketing Digital</title>
   <style>
+    .signup {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+
+    .signup input {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .signup button,
+    .btn {
+      background-color: var(--blue);
+      color: var(--white);
+      padding: 14px;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .signup button:hover,
+    .btn:hover {
+      opacity: 0.9;
+    }
+
     :root {
       --black: #000000;
       --dark-gray: #1d1d1f;
@@ -162,11 +195,118 @@
 
       </div>
     </section>
+
+    <!-- Chapitre intermédiaire -->
+    <section class="chapter">
+      <h2>Chapitre 2 – Niveau intermédiaire</h2>
+      <div class="modules">
+        <div class="module">
+          <h3>Module 5 – Publicité en ligne</h3>
+          <p>Introduction à Facebook Ads et Google Ads.</p>
+        </div>
+        <div class="module">
+          <h3>Module 6 – Analyse & KPI</h3>
+          <p>Comprendre les statistiques et améliorer ses résultats.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard élève -->
+    <section class="intro">
+      <h2>Dashboard élève</h2>
+      <p>Progression de la formation</p>
+      <progress value="40" max="100" style="width:100%"></progress>
+      <p style="margin-top:10px;color:#555">40% complété</p>
+    </section>
+
+    <!-- Paiement Stripe -->
+    <section class="intro" style="text-align:center">
+      <h2>Paiement sécurisé</h2>
+      <p>Paiement réel via Stripe (nécessite backend)</p>
+      <button class="btn" onclick="alert('Intégration Stripe côté serveur requise')">Payer avec Stripe</button>
+    </section>
+
+    <!-- Page d'inscription -->
+    <section class="intro">
+      <h2>Inscription à la formation</h2>
+      <p>Accédez à la formation complète GC Digital (accès privé & payant).</p>
+      <form class="signup">
+        <input type="text" placeholder="Nom complet" required />
+        <input type="email" placeholder="Email" required />
+        <button type="submit">S'inscrire à la formation</button>
+      </form>
+      <p style="margin-top:10px;color:#555;font-size:0.9rem">Paiement simulé – intégration Stripe possible</p>
+    </section>
+
+    <!-- Certificat -->
+    <section class="intro" style="text-align:center">
+      <h2>Certificat de fin de formation</h2>
+      <p>Génération automatique du certificat PDF.</p>
+      <button class="btn" onclick="generateCert()">Télécharger le certificat PDF</button>
+    </section>
+    <section class="intro" style="text-align:center">
+      <h2>Certificat de fin de formation</h2>
+      <p>À la fin de la formation, vous recevez un certificat GC Digital.</p>
+      <a class="btn" href="#" onclick="alert('Certificat généré après validation de la formation')">Voir un exemple de certificat</a>
+    </section>
   </main>
+
+  <!-- Bouton WhatsApp -->
+  <a href="https://wa.me/33600000000" class="whatsapp" target="_blank">💬</a>
 
   <footer>
     © 2025 GC Digital – Formation Marketing Digital
   </footer>
+
+  <!-- Bouton WhatsApp -->
+  <a href="https://wa.me/33600000000" class="whatsapp" target="_blank" aria-label="Contact WhatsApp">💬</a>
+
+  <style>
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 22px;
+      padding: 14px 16px;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .whatsapp:hover {
+      opacity: 0.9;
+    }
+  </style>
+
+  <script>
+    // Accès privé simple (démo GitHub Pages)
+    const PASSWORD = "gcdigital";
+    const access = sessionStorage.getItem("gc_access");
+
+    if (!access) {
+      const input = prompt("Formation privée GC Digital 
+Entrez le mot de passe :");
+      if (input === PASSWORD) {
+        sessionStorage.setItem("gc_access", "ok");
+      } else {
+        document.body.innerHTML = `
+          <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#f5f5f7;">
+            <div style="background:white;padding:40px;border-radius:20px;text-align:center;max-width:400px;">
+              <h2>Accès refusé</h2>
+              <p style="color:#555">Cette formation est privée.</p>
+            </div>
+          </div>`;
+      }
+    }
+
+    // Simulation inscription
+    document.querySelector('.signup')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Merci pour votre inscription ! Accès débloqué.');
+    });
+  </script>
 
 </body>
 </html>
