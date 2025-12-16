@@ -1,95 +1,62 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GC.digital – Plateforme de formation Marketing Digital</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GC.digital – Formation Marketing Digital</title>
 
-  <!-- ================== STYLE (APPLE-LIKE) ================== -->
-  <style>
-    :root {
-      --black:#000;
-      --dark:#1d1d1f;
-      --gray:#f5f5f7;
-      --white:#fff;
-      --blue:#0071e3;
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-
-    body{background:var(--gray);color:var(--dark);line-height:1.6}
-
-    header{background:var(--white);padding:90px 20px 70px;text-align:center;border-bottom:1px solid #e5e5e5}
-    header h1{font-size:3.4rem;text-decoration:underline;text-underline-offset:10px;color:var(--black)}
-    header p{max-width:900px;margin:25px auto 0;font-size:1.2rem;color:#555}
-
-    main{max-width:1200px;margin:90px auto;padding:0 20px}
-
-    h2{text-align:center;font-size:2.4rem;margin-bottom:40px;text-decoration:underline;text-underline-offset:8px}
-    h3{text-decoration:underline;text-underline-offset:6px}
-
-    .chapter{margin-bottom:90px}
-    .modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
-
-    .module{background:var(--white);padding:30px;border-radius:22px;transition:.3s}
-    .module:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
-
-    iframe{width:100%;height:200px;border-radius:14px;border:none;margin-top:10px}
-
-    .btn{background:var(--black);color:var(--white);border:none;padding:16px 36px;border-radius:999px;font-size:1.05rem;cursor:pointer}
-    .btn:hover{opacity:.9}
-
-    progress{width:100%;height:18px}
-
-    footer{background:var(--white);border-top:1px solid #e5e5e5;text-align:center;padding:40px;color:#555}
-  </style>
+<style>
+:root{--black:#000;--dark:#1d1d1f;--gray:#f5f5f7;--white:#fff;--blue:#0071e3}
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto}
+body{background:var(--gray);color:var(--dark)}
+header{background:#fff;padding:90px 20px;text-align:center;border-bottom:1px solid #e5e5e5}
+header h1{text-decoration:underline;font-size:3.4rem}
+header p{max-width:900px;margin:25px auto;color:#555;font-size:1.2rem}
+main{max-width:1200px;margin:90px auto;padding:0 20px}
+h2{text-align:center;font-size:2.3rem;margin-bottom:40px;text-decoration:underline}
+h3{text-decoration:underline}
+.chapter{margin-bottom:90px}
+.modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+.module{background:#fff;padding:30px;border-radius:22px;transition:.3s}
+.module:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
+iframe{width:100%;height:200px;border-radius:14px;border:none;margin-top:10px}
+.btn{background:#000;color:#fff;border:none;padding:16px 36px;border-radius:999px;cursor:pointer;font-size:1rem}
+progress{width:100%;height:18px}
+footer{background:#fff;text-align:center;padding:40px;border-top:1px solid #e5e5e5}
+.hidden{display:none}
+</style>
 </head>
 <body>
 
-<!-- ================== HEADER ================== -->
 <header>
-  <h1>GC.digital</h1>
-  <p>
-    GC.digital est une plateforme de formation en <strong>marketing digital engineering</strong>.
-    Elle a été conçue comme un système structuré et progressif combinant stratégie,
-    automatisation, data et performance. La formation est payante, sécurisée et pensée
-    comme une véritable montée en compétence professionnelle.
-  </p>
+<h1>GC.digital</h1>
+<p>GC.digital est une plateforme de formation premium en marketing digital engineering. Elle accompagne les débutants jusqu’au niveau avancé grâce à une progression structurée, sécurisée et orientée performance.</p>
 </header>
 
 <main>
 
-<!-- ================== PAYWALL / AUTH ================== -->
 <section class="chapter" id="paywall" style="text-align:center">
-  <h2>Accès sécurisé à la formation</h2>
-  <p style="max-width:700px;margin:20px auto;color:#555">
-    Le paiement et l'inscription sont obligatoires. Sans compte actif et paiement validé,
-    aucun contenu de formation n'est accessible.
-  </p>
-
-  <form id="authForm" style="max-width:420px;margin:40px auto">
-    <input required type="email" placeholder="Email" style="width:100%;padding:14px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
-    <input required type="password" placeholder="Mot de passe" style="width:100%;padding:14px;border-radius:12px;border:1px solid #ccc;margin-bottom:20px">
-    <button class="btn" type="submit">Payer avec Stripe & créer mon compte</button>
-  </form>
-
-  <p style="font-size:.9rem;color:#777">Stripe Checkout réel + Auth Firebase / Supabase (backend requis)</p>
+<h2>Accès privé à la formation</h2>
+<p>Le paiement et la création de compte sont obligatoires pour accéder à la formation.</p>
+<form id="authForm" style="max-width:420px;margin:40px auto">
+<input required type="email" placeholder="Email" style="width:100%;padding:14px;margin-bottom:12px">
+<input required type="password" placeholder="Mot de passe" style="width:100%;padding:14px;margin-bottom:20px">
+<button class="btn" type="submit">Payer avec Stripe</button>
+</form>
+<p style="font-size:.9rem;color:#777">Stripe Checkout réel – Firebase Auth</p>
 </section>
 
-<!-- ================== FORMATION ================== -->
-<div id="formation" style="display:none">
+<div id="app" class="hidden">
 
-<!-- ================== DASHBOARD ELEVE ================== -->
-<section class="chapter" id="dashboard">
-  <h2>Dashboard élève</h2>
-  <div class="modules">
-    <div class="module"><h3>Niveau</h3><p id="level">Débutant</p></div>
-    <div class="module"><h3>Progression</h3><progress id="globalProgress" value="0" max="100"></progress><p id="progressText">0 %</p></div>
-    <div class="module"><h3>Certificat</h3><p id="cert">Bloqué</p></div>
-  </div>
+<section class="chapter">
+<h2>Dashboard élève</h2>
+<div class="modules">
+<div class="module"><h3>Niveau</h3><p id="level">Débutant</p></div>
+<div class="module"><h3>Progression</h3><progress id="progress" value="0" max="100"></progress><p id="progressText">0%</p></div>
+<div class="module"><h3>Certificat</h3><p id="certificate">Bloqué</p></div>
+</div>
 </section>
 
-<!-- ================== CHAPITRE 1 ================== -->
 <section class="chapter">
 <h2>Chapitre 1 – Fondamentaux</h2>
 <div class="modules">
@@ -101,81 +68,67 @@
 </section>
 
 <section class="chapter">
-<h2>Expérience – Fin Chapitre 1</h2>
-<div class="modules">
-<div class="module"><h3>XP gagnée</h3><p>+25 %</p></div>
-<div class="module"><button class="btn" onclick="validateChapter(25)">Valider Chapitre 1</button></div>
-</div>
+<h2>Fin Chapitre 1</h2>
+<button class="btn" onclick="validate(25)">Valider (+25%)</button>
 </section>
 
-<!-- ================== CHAPITRE 2 ================== -->
-<section class="chapter" id="ch2" style="display:none">
+<section class="chapter hidden" id="ch2">
 <h2>Chapitre 2 – Intermédiaire</h2>
 <div class="modules">
-<div class="module"><h3>Construire une vraie stratégie digitale</h3></div>
-<div class="module"><h3>Marketing de contenu & branding</h3></div>
+<div class="module"><h3>Stratégie digitale</h3></div>
+<div class="module"><h3>Branding & contenu</h3></div>
 <div class="module"><h3>Publicité en ligne</h3></div>
 <div class="module"><h3>Analyse & optimisation</h3></div>
 </div>
 </section>
 
-<section class="chapter" id="xp2" style="display:none">
-<h2>Expérience – Fin Chapitre 2</h2>
-<div class="modules">
-<div class="module"><h3>XP gagnée</h3><p>+25 %</p></div>
-<div class="module"><button class="btn" onclick="validateChapter(50)">Valider Chapitre 2</button></div>
-</div>
+<section class="chapter hidden" id="xp2">
+<h2>Fin Chapitre 2</h2>
+<button class="btn" onclick="validate(50)">Valider (+25%)</button>
 </section>
 
-<!-- ================== CHAPITRE 3 ================== -->
-<section class="chapter" id="ch3" style="display:none">
+<section class="chapter hidden" id="ch3">
 <h2>Chapitre 3 – Avancé</h2>
 <div class="modules">
-<div class="module"><h3>Funnel de vente & parcours clients</h3></div>
+<div class="module"><h3>Funnel & parcours client</h3></div>
 <div class="module"><h3>Automatisation & no-code</h3></div>
-<div class="module"><h3>Publicité avancée & scaling</h3></div>
-<div class="module"><h3>Data, optimisation & croissance durable</h3></div>
+<div class="module"><h3>Scaling & publicité avancée</h3></div>
+<div class="module"><h3>Data & croissance durable</h3></div>
 </div>
 </section>
 
 </div>
 </main>
 
-<footer>
-© 2025 GC.digital – Plateforme de formation Marketing Digital
-</footer>
+<footer>© 2025 GC.digital</footer>
 
-<!-- ================== SCRIPT ================== -->
 <script>
-let progress = localStorage.getItem('progress') ? parseInt(localStorage.getItem('progress')) : 0;
+let progress=localStorage.getItem('progress')?parseInt(localStorage.getItem('progress')):0;
 
-function updateUI(){
-  document.getElementById('globalProgress').value = progress;
-  document.getElementById('progressText').innerText = progress + ' %';
-
-  if(progress>=25) document.getElementById('ch2').style.display='block';
-  if(progress>=50) document.getElementById('xp2').style.display='block';
-  if(progress>=50) document.getElementById('ch3').style.display='block';
-  if(progress>=100){
-    document.getElementById('cert').innerText='Certificat débloqué';
-    document.getElementById('level').innerText='Débutant acquis';
-  }
+function update(){
+ document.getElementById('progress').value=progress;
+ document.getElementById('progressText').innerText=progress+'%';
+ if(progress>=25) document.getElementById('ch2').classList.remove('hidden');
+ if(progress>=50) document.getElementById('xp2').classList.remove('hidden');
+ if(progress>=50) document.getElementById('ch3').classList.remove('hidden');
+ if(progress>=100){document.getElementById('certificate').innerText='Débloqué';document.getElementById('level').innerText='Débutant acquis'}
 }
 
-function validateChapter(value){
-  progress=value;
-  localStorage.setItem('progress',progress);
-  updateUI();
-}
+function validate(v){progress=v;localStorage.setItem('progress',progress);update()}
 
 document.getElementById('authForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  document.getElementById('paywall').style.display='none';
-  document.getElementById('formation').style.display='block';
-  updateUI();
+ e.preventDefault();
+ fetch('https://TON_BACKEND.vercel.app/api/create-checkout')
+ .then(r=>r.json())
+ .then(d=>window.location.href=d.url);
 });
 
-updateUI();
+if(new URLSearchParams(window.location.search).get('success')){
+ document.getElementById('paywall').classList.add('hidden');
+ document.getElementById('app').classList.remove('hidden');
+}
+
+update();
 </script>
 
 </body>
