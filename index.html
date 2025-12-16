@@ -227,7 +227,42 @@
       </div>
     </section>
 
+    <!-- EXPERIENCE FIN CHAPITRE 1 -->
+    <section class="chapter">
+      <h2>Expérience – Fin du Chapitre 1</h2>
+      <div class="modules">
+        <div class="module">
+          <h3>📘 Chapitre complété</h3>
+          <p>Les bases du marketing digital</p>
+        </div>
+        <div class="module">
+          <h3>⭐ Expérience gagnée</h3>
+          <p><strong>+25 %</strong></p>
+        </div>
+        <div class="module">
+          <h3>📈 Progression globale</h3>
+          <progress value="25" max="100" style="width:100%"></progress>
+          <p style="margin-top:8px">25 % complété</p>
+        </div>
+        <div class="module">
+          <h3>🚀 Niveau</h3>
+          <p>Débutant</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE FIN CHAPITRE 1 -->
+    <section class="chapter" id="xp-ch1">
+      <h2>Expérience – Fin du Chapitre 1</h2>
+      <div class="modules">
+        <div class="module"><h3>⭐ Expérience gagnée</h3><p><strong>+25 %</strong></p></div>
+        <div class="module"><h3>📈 Progression globale</h3><progress id="progress-bar" value="25" max="100" style="width:100%"></progress><p id="progress-text">25 % complété</p></div>
+        <div class="module"><h3>🔓 Déblocage</h3><button class="pay-btn" onclick="unlockChapter2()">Valider Chapitre 1</button></div>
+      </div>
+    </section>
+
     <!-- CHAPITRE 2 -->
+    <section class="chapter" id="chapter2" style="display:none">
     <section class="chapter">
       <h2>Chapitre 2 – Niveau intermédiaire</h2>
       <div class="modules">
@@ -255,24 +290,56 @@
       </div>
     </section>
 
+    <!-- EXPERIENCE FIN CHAPITRE 2 -->
+    <section class="chapter" id="xp-ch2" style="display:none">
+      <h2>Expérience – Fin du Chapitre 2</h2>
+      <div class="modules">
+        <div class="module"><h3>⭐ Expérience gagnée</h3><p><strong>+25 %</strong></p></div>
+        <div class="module"><h3>📈 Progression globale</h3><progress id="progress-bar-2" value="50" max="100" style="width:100%"></progress><p>50 % complété</p></div>
+        <div class="module"><h3>🏆 Certificat</h3><p id="cert-status">Bloqué (100 % requis)</p></div>
+      </div>
+    </section>
+
       </div>
   </main>
 
   <script>
-    // Simulation Auth + Stripe
+    let progress = localStorage.getItem('progress') ? parseInt(localStorage.getItem('progress')) : 0;
+
+    function updateDashboard() {
+      if (document.getElementById('progress-bar')) {
+        document.getElementById('progress-bar').value = progress;
+        document.getElementById('progress-text').innerText = progress + ' % complété';
+      }
+      if (progress >= 25) {
+        document.getElementById('chapter2').style.display = 'block';
+      }
+      if (progress >= 50) {
+        document.getElementById('xp-ch2').style.display = 'block';
+      }
+      if (progress >= 100) {
+        document.getElementById('cert-status').innerText = 'Certificat débloqué 🎉';
+      }
+    }
+
+    function unlockChapter2() {
+      progress = 25;
+      localStorage.setItem('progress', progress);
+      updateDashboard();
+      alert('Chapitre 1 validé – Chapitre 2 débloqué');
+    }
+
     document.getElementById('authForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      alert('Paiement Stripe validé (simulation) 
-Compte créé avec succès');
+      localStorage.setItem('progress', 25);
+      progress = 25;
       document.getElementById('paywall').style.display = 'none';
       document.getElementById('formation').style.display = 'block';
       document.getElementById('dashboard').style.display = 'block';
+      updateDashboard();
     });
 
-    // Certificat PDF (simulation)
-    function downloadCert() {
-      alert('Certificat PDF généré automatiquement');
-    }
+    updateDashboard();
   </script>
 
   <!-- FOOTER -->
@@ -282,4 +349,3 @@ Compte créé avec succès');
 
 </body>
 </html>
-
