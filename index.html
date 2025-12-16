@@ -145,12 +145,28 @@
     <section class="chapter" id="paywall" style="text-align:center">
       <h2>Accès à la formation</h2>
       <p style="max-width:700px;margin:20px auto;color:#555">
-        Pour accéder à l’ensemble de la formation GC Digital, vous devez d’abord effectuer le paiement
-        puis créer votre compte. Une fois inscrit, la formation sera automatiquement débloquée.
+        Le paiement et la création de compte sont obligatoires pour accéder à la formation GC Digital.
       </p>
 
-      <div style="margin-top:30px">
-        <button class="pay-btn" onclick="unlockFormation()">Payer & s'inscrire</button>
+      <!-- AUTH FORM -->
+      <form id="authForm" style="max-width:400px;margin:30px auto">
+        <input type="email" placeholder="Email" required style="width:100%;padding:14px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
+        <input type="password" placeholder="Mot de passe" required style="width:100%;padding:14px;border-radius:12px;border:1px solid #ccc;margin-bottom:20px">
+        <button type="submit" class="pay-btn">Payer & créer mon compte</button>
+      </form>
+      <p style="font-size:0.9rem;color:#777">Paiement sécurisé Stripe (simulation frontend)</p>
+    </section>
+
+    <!-- AUTH & PAYMENT FEATURES -->
+    <section class="chapter" style="text-align:center">
+      <h2>Fonctionnalités avancées</h2>
+      <div class="modules">
+        <div class="module"><h3>💳 Paiement Stripe réel</h3><p>Intégration Stripe Checkout (backend requis : Node.js / Firebase).</p></div>
+        <div class="module"><h3>👤 Compte utilisateur</h3><p>Connexion sécurisée avec email & mot de passe.</p></div>
+        <div class="module"><h3>🎥 Vidéos YouTube</h3><p>Chaque module inclut une vidéo intégrée.</p></div>
+        <div class="module"><h3>🏆 Certificat PDF</h3><p>Certificat automatique après validation de la formation.</p></div>
+        <div class="module"><h3>📱 Mobile ultra‑premium</h3><p>Design responsive optimisé mobile & tablette.</p></div>
+        <div class="module"><h3>🔐 Espace membre sécurisé</h3><p>Accès privé réservé aux utilisateurs payants.</p></div>
       </div>
     </section>
 
@@ -164,6 +180,8 @@
 
         <div class="module">
           <h3>Module 1 – Base du marketing digital</h3>
+          <iframe src="https://www.youtube.com/embed/VeuspvV7DCg" allowfullscreen></iframe>
+          <p>Comprendre les fondamentaux du marketing digital et son fonctionnement global.</p></h3>
           <p>Comprendre les fondamentaux du marketing digital et son fonctionnement global.</p>
         </div>
 
@@ -217,10 +235,17 @@
   </main>
 
   <script>
-    function unlockFormation() {
-      alert('Paiement validé (simulation) – Compte créé avec succès');
+    // Simulation Auth + Stripe
+    document.getElementById('authForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Paiement Stripe validé (simulation) \nCompte créé avec succès');
       document.getElementById('paywall').style.display = 'none';
       document.getElementById('formation').style.display = 'block';
+    });
+
+    // Certificat PDF (simulation)
+    function downloadCert() {
+      alert('Certificat PDF généré automatiquement');
     }
   </script>
 
