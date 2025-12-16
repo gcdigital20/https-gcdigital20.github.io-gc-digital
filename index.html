@@ -170,6 +170,30 @@
       </div>
     </section>
 
+    <!-- DASHBOARD EXPERIENCE -->
+    <section class="chapter" id="dashboard" style="display:none">
+      <h2>Dashboard d’expérience</h2>
+      <div class="modules">
+        <div class="module">
+          <h3>🎯 Niveau</h3>
+          <p><strong>Débutant</strong></p>
+        </div>
+        <div class="module">
+          <h3>⭐ Points d’expérience (XP)</h3>
+          <p><span id="xp">120</span> XP</p>
+        </div>
+        <div class="module">
+          <h3>📈 Progression</h3>
+          <progress value="30" max="100" style="width:100%"></progress>
+          <p style="margin-top:8px">30 % complété</p>
+        </div>
+        <div class="module">
+          <h3>🏆 Récompense</h3>
+          <p>Certificat débloqué à 100 %</p>
+        </div>
+      </div>
+    </section>
+
     <!-- FORMATION (LOCKED BY DEFAULT) -->
     <div id="formation" style="display:none">
 
@@ -238,9 +262,11 @@
     // Simulation Auth + Stripe
     document.getElementById('authForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      alert('Paiement Stripe validé (simulation) \nCompte créé avec succès');
+      alert('Paiement Stripe validé (simulation) 
+Compte créé avec succès');
       document.getElementById('paywall').style.display = 'none';
       document.getElementById('formation').style.display = 'block';
+      document.getElementById('dashboard').style.display = 'block';
     });
 
     // Certificat PDF (simulation)
@@ -256,3 +282,4 @@
 
 </body>
 </html>
+
