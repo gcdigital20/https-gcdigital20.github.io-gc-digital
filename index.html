@@ -6,6 +6,22 @@
   <title>GC Digital – Formation Marketing Digital</title>
 
   <style>
+    .pay-btn {
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      padding: 16px 36px;
+      font-size: 1.1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .pay-btn:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
     :root {
       --black: #000000;
       --dark-gray: #1d1d1f;
@@ -39,6 +55,8 @@
       font-weight: 600;
       color: var(--black);
       margin-bottom: 15px;
+      text-decoration: underline;
+      text-underline-offset: 10px;
     }
 
     header p {
@@ -62,6 +80,8 @@
       text-align: center;
       font-size: 2.4rem;
       margin-bottom: 40px;
+      text-decoration: underline;
+      text-underline-offset: 8px;
     }
 
     .modules {
@@ -86,6 +106,8 @@
       font-size: 1.25rem;
       margin-bottom: 12px;
       color: var(--black);
+      text-decoration: underline;
+      text-underline-offset: 6px;
     }
 
     .module p {
@@ -118,6 +140,22 @@
 
   <!-- MAIN CONTENT -->
   <main>
+
+    <!-- PAYWALL -->
+    <section class="chapter" id="paywall" style="text-align:center">
+      <h2>Accès à la formation</h2>
+      <p style="max-width:700px;margin:20px auto;color:#555">
+        Pour accéder à l’ensemble de la formation GC Digital, vous devez d’abord effectuer le paiement
+        puis créer votre compte. Une fois inscrit, la formation sera automatiquement débloquée.
+      </p>
+
+      <div style="margin-top:30px">
+        <button class="pay-btn" onclick="unlockFormation()">Payer & s'inscrire</button>
+      </div>
+    </section>
+
+    <!-- FORMATION (LOCKED BY DEFAULT) -->
+    <div id="formation" style="display:none">
 
     <!-- CHAPITRE 1 -->
     <section class="chapter">
@@ -175,7 +213,16 @@
       </div>
     </section>
 
+      </div>
   </main>
+
+  <script>
+    function unlockFormation() {
+      alert('Paiement validé (simulation) – Compte créé avec succès');
+      document.getElementById('paywall').style.display = 'none';
+      document.getElementById('formation').style.display = 'block';
+    }
+  </script>
 
   <!-- FOOTER -->
   <footer>
