@@ -6,106 +6,113 @@
   <title>GC Digital – Formation Marketing Digital</title>
   <style>
     :root {
-      --blue: #0a4fff;
-      --light-blue: #eaf0ff;
+      --black: #000000;
+      --dark-gray: #1d1d1f;
+      --gray: #f5f5f7;
       --white: #ffffff;
-      --text: #1f2937;
+      --blue: #0071e3;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     body {
-      background-color: var(--light-blue);
-      color: var(--text);
+      background-color: var(--gray);
+      color: var(--dark-gray);
       line-height: 1.6;
     }
 
     header {
-      background-color: var(--blue);
-      color: var(--white);
-      padding: 40px 20px;
+      background-color: var(--white);
+      padding: 60px 20px;
       text-align: center;
+      border-bottom: 1px solid #ddd;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
+      font-weight: 600;
       margin-bottom: 10px;
     }
 
     header p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       max-width: 700px;
       margin: 0 auto;
+      color: #555;
     }
 
     main {
-      max-width: 1000px;
-      margin: 40px auto;
+      max-width: 1100px;
+      margin: 60px auto;
       padding: 0 20px;
     }
 
     .intro {
       background-color: var(--white);
-      padding: 30px;
-      border-radius: 10px;
-      margin-bottom: 30px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 40px;
+      border-radius: 18px;
+      margin-bottom: 50px;
     }
 
     .intro h2 {
-      color: var(--blue);
+      font-size: 2rem;
       margin-bottom: 15px;
     }
 
-    .chapter {
-      margin-bottom: 40px;
-    }
-
     .chapter h2 {
-      color: var(--blue);
-      margin-bottom: 20px;
-      font-size: 1.8rem;
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      text-align: center;
     }
 
     .modules {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
     }
 
     .module {
       background-color: var(--white);
       padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease;
+      border-radius: 20px;
+      transition: transform 0.25s ease;
     }
 
     .module:hover {
-      transform: translateY(-5px);
+      transform: scale(1.03);
     }
 
     .module h3 {
-      color: var(--blue);
+      font-size: 1.3rem;
       margin-bottom: 10px;
-      font-size: 1.2rem;
+    }
+
+    .module p {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 14px;
+      border: none;
     }
 
     footer {
-      background-color: var(--blue);
-      color: var(--white);
+      background-color: var(--white);
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    footer p {
+      padding: 30px;
+      margin-top: 60px;
+      border-top: 1px solid #ddd;
       font-size: 0.9rem;
+      color: #555;
     }
   </style>
 </head>
@@ -113,50 +120,52 @@
 
   <header>
     <h1>GC Digital</h1>
-    <p>Formation en marketing digital claire et simple pour les débutants un peu perdus</p>
+    <p>Une formation simple et claire en marketing digital, pensée pour les débutants</p>
   </header>
 
   <main>
     <section class="intro">
       <h2>À propos de la formation</h2>
       <p>
-        Cette formation a été conçue pour les débutants qui souhaitent comprendre le marketing digital
-        sans jargon compliqué. Chaque module est expliqué de manière simple, pratique et progressive.
+        GC Digital est une formation progressive pour comprendre le marketing digital sans stress.
+        Chaque module contient une vidéo explicative simple à suivre.
       </p>
     </section>
 
     <section class="chapter">
-      <h2>Chapitre 1 : Les bases du marketing digital</h2>
+      <h2>Chapitre 1 – Les fondamentaux</h2>
       <div class="modules">
+
         <div class="module">
-          <h3>Module 1</h3>
-          <p><strong>Base du marketing digital</strong><br />
-          Comprendre les concepts essentiels et le fonctionnement du marketing en ligne.</p>
+          <h3>Module 1 – Bases du marketing digital</h3>
+          <p>Comprendre les bases essentielles du marketing digital.</p>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
         </div>
 
         <div class="module">
-          <h3>Module 2</h3>
-          <p><strong>Réseaux sociaux pour débutants</strong><br />
-          Apprendre à utiliser les réseaux sociaux de façon simple et efficace.</p>
+          <h3>Module 2 – Réseaux sociaux pour débutants</h3>
+          <p>Découvrir les réseaux sociaux et leur utilité pour un business.</p>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
         </div>
 
         <div class="module">
-          <h3>Module 3</h3>
-          <p><strong>Création de contenu efficace</strong><br />
-          Savoir créer du contenu clair, utile et engageant.</p>
+          <h3>Module 3 – Création de contenu efficace</h3>
+          <p>Créer du contenu clair, simple et engageant.</p>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
         </div>
 
         <div class="module">
-          <h3>Module 4</h3>
-          <p><strong>Lancer sa première stratégie</strong><br />
-          Mettre en place une première stratégie marketing étape par étape.</p>
+          <h3>Module 4 – Lancer sa première stratégie</h3>
+          <p>Mettre en place sa toute première stratégie marketing.</p>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe>
         </div>
+
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 GC Digital – Formation Marketing Digital</p>
+    © 2025 GC Digital – Formation Marketing Digital
   </footer>
 
 </body>
