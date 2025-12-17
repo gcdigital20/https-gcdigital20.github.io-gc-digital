@@ -1,134 +1,125 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>GC.Digital</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>GC.Digital – Formation</title>
 
   <style>
-    body { margin:0; font-family:Inter, sans-serif; background:#fff; color:#000; }
-    header { padding:80px 20px; text-align:center; border-bottom:1px solid #eee; }
-    h1 { font-family:'Playfair Display', serif; font-size:56px; margin:0; }
-    p { max-width:700px; margin:20px auto; color:#555; }
-    .container { max-width:1000px; margin:60px auto; padding:0 20px; }
-    .chapter { margin-bottom:80px; }
-    .chapter h2 { font-family:'Playfair Display', serif; font-size:36px; }
-    .module { border:1px solid #e5e5e5; padding:24px; margin-top:20px; }
-    .progress { height:6px; background:#eee; margin-top:10px; }
-    .progress div { height:6px; background:#000; width:0%; }
-    .locked { opacity:0.4; pointer-events:none; }
-    .btn { margin-top:30px; padding:14px 28px; border:none; background:#000; color:#fff; cursor:pointer; }
-    .dashboard { margin-top:15px; font-size:14px; color:#666; }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .locked {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .module {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin: 10px auto;
+      width: 80%;
+    }
+
+    .progress {
+      height: 6px;
+      background: #eee;
+      margin-top: 8px;
+    }
+
+    .progress div {
+      height: 6px;
+      width: 0%;
+      background: black;
+    }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>GC.Digital</h1>
-  <p>La formation GC.Digital est faite pour que les débutants qui se sentent un peu perdus. La formation est simple et claire pour passer à l'action.</p>
-  <button class="btn" onclick="pay()">Accéder à la formation</button>
-</header>
+<h1>GC.Digital</h1>
+<p>Bienvenue dans la formation</p>
 
-<div class="container" id="content" style="display:none">
+<div id="content" style="display:none">
 
-  <div class="chapter" id="chap1">
-    <h2>Chapitre 1 – Les fondations</h2>
+  <h2>Chapitre 1 – Les fondations</h2>
 
-    <div class="module">Module 1 – Les bases du marketing digital
-      <div class="dashboard" id="t1">Temps vidéo : 0s</div>
-      <div class="progress"><div id="p1"></div></div>
-    </div>
-
-    <div class="module">Module 2 – Les bases des réseaux sociaux
-      <div class="dashboard" id="t2">Temps vidéo : 0s</div>
-      <div class="progress"><div id="p2"></div></div>
-    </div>
-
-    <div class="module">Module 3 – Création de contenu efficace
-      <div class="dashboard" id="t3">Temps vidéo : 0s</div>
-      <div class="progress"><div id="p3"></div></div>
-    </div>
-
-    <div class="module">Module 4 – Lancer sa première stratégie
-      <div class="dashboard" id="t4">Temps vidéo : 0s</div>
-      <div class="progress"><div id="p4"></div></div>
-    </div>
-
-    <button class="btn" onclick="finishChap1()">Terminer le chapitre 1 (+25% XP)</button>
-    <div class="dashboard" id="xp">Expérience : 0%</div>
+  <div class="module">
+    Module 1 – Marketing digital
+    <div id="t1">Temps : 0s</div>
+    <div class="progress"><div id="p1"></div></div>
   </div>
 
-  <div class="chapter locked" id="chap2">
-    <h2>Chapitre 2 – Stratégie & Conversion</h2>
-    <div class="module">Module 5 – Stratégie digitale claire et rentable</div>
-    <div class="module">Module 6 – Contenu qui attire et positionne</div>
-    <div class="module">Module 7 – Générer du trafic qualifié</div>
-    <div class="module">Module 8 – Transformer l'audience en client</div>
+  <div class="module">
+    Module 2 – Réseaux sociaux
+    <div id="t2">Temps : 0s</div>
+    <div class="progress"><div id="p2"></div></div>
   </div>
+
+  <button onclick="finishChap1()">Terminer le chapitre 1</button>
+  <p id="xp">XP : 0%</p>
+
+  <h2 id="chap2" class="locked">Chapitre 2 – Conversion</h2>
 
 </div>
 
-<!-- Firebase -->
+<!-- 🔥 Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
 <script>
   const firebaseConfig = {
-    apiKey: "AIzaSyDhTM5P1OngbZtdAj2lSgesShhoBjXhNsY",
+    apiKey: "TA_API_KEY",
     authDomain: "gc-digital-93913.firebaseapp.com",
     projectId: "gc-digital-93913",
-    storageBucket: "gc-digital-93913.firebasestorage.app",
+    storageBucket: "gc-digital-93913.appspot.com",
     messagingSenderId: "810132792036",
-    appId: "1:810132792036:web:3bb4859f8d045163df82f1"
+    appId: "TON_APP_ID"
   };
 
   firebase.initializeApp(firebaseConfig);
+
   const auth = firebase.auth();
   const db = firebase.firestore();
-</script>
 
+  // 🔒 Protection accès
+  auth.onAuthStateChanged(async (user) => {
+    if (!user) {
+      window.location.href = "login.html";
+      return;
+    }
 
-<!-- 🔐 ACCÈS PAYANT -->
-<script>
-auth.onAuthStateChanged(async (user) => {
-  if (!user) {
-    document.getElementById("content").style.display = "none";
-    return;
-  }
+    const doc = await db.collection("users").doc(user.uid).get();
 
-  const doc = await db.collection("users").doc(user.uid).get();
+    if (doc.exists && doc.data().isPaid === true) {
+      document.getElementById("content").style.display = "block";
+    } else {
+      alert("Accès réservé aux membres GC.Digital");
+      auth.signOut();
+      window.location.href = "login.html";
+    }
+  });
 
-  if (doc.exists && doc.data().isPaid === true) {
-    document.getElementById("content").style.display = "block";
-  } else {
-    document.getElementById("content").style.display = "none";
-    alert("Accès réservé aux membres GC.Digital");
-  }
-});
-</script>
-
-
-<!-- 📊 XP & TIMER (TON CODE, GARDÉ) -->
-<script>
+  // 🎮 XP + TIMER (simple & clean)
   let xp = 0;
-  let time = [0,0,0,0];
+  let time = [0,0];
 
   function finishChap1() {
     xp = 25;
-    document.getElementById('xp').innerText = 'Expérience : ' + xp + '%';
-    document.getElementById('chap2').classList.remove('locked');
+    document.getElementById("xp").innerText = "XP : " + xp + "%";
+    document.getElementById("chap2").classList.remove("locked");
   }
 
   setInterval(() => {
-    for(let i=0;i<4;i++){
+    for (let i = 0; i < 2; i++) {
       time[i]++;
-      document.getElementById('t'+(i+1)).innerText = 'Temps vidéo : '+time[i]+'s';
-      document.getElementById('p'+(i+1)).style.width = (time[i]%100)+'%';
+      document.getElementById("t"+(i+1)).innerText = "Temps : " + time[i] + "s";
+      document.getElementById("p"+(i+1)).style.width = (time[i] % 100) + "%";
     }
-  },1000);
+  }, 1000);
 </script>
 
 </body>
