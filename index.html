@@ -5,6 +5,7 @@
   <title>GC.Digital</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
     body { margin:0; font-family:Inter, sans-serif; background:#fff; color:#000; }
     header { padding:80px 20px; text-align:center; border-bottom:1px solid #eee; }
@@ -21,12 +22,13 @@
     .dashboard { margin-top:15px; font-size:14px; color:#666; }
   </style>
 </head>
+
 <body>
 
 <header>
   <h1>GC.Digital</h1>
   <p>La formation GC.Digital est faite pour que les débutants qui se sentent un peu perdus. La formation est simple et claire pour passer à l'action.</p>
-  <button class="btn" onclick="pay()">Accéder à la formation (Stripe)</button>
+  <button class="btn" onclick="pay()">Accéder à la formation</button>
 </header>
 
 <div class="container" id="content" style="display:none">
@@ -34,10 +36,25 @@
   <div class="chapter" id="chap1">
     <h2>Chapitre 1 – Les fondations</h2>
 
-    <div class="module">Module 1 – Les bases du marketing digital<div class="dashboard" id="t1">Temps vidéo : 0s</div><div class="progress"><div id="p1"></div></div></div>
-    <div class="module">Module 2 – Les bases des réseaux sociaux<div class="dashboard" id="t2">Temps vidéo : 0s</div><div class="progress"><div id="p2"></div></div></div>
-    <div class="module">Module 3 – Création de contenu efficace<div class="dashboard" id="t3">Temps vidéo : 0s</div><div class="progress"><div id="p3"></div></div></div>
-    <div class="module">Module 4 – Lancer sa première stratégie<div class="dashboard" id="t4">Temps vidéo : 0s</div><div class="progress"><div id="p4"></div></div></div>
+    <div class="module">Module 1 – Les bases du marketing digital
+      <div class="dashboard" id="t1">Temps vidéo : 0s</div>
+      <div class="progress"><div id="p1"></div></div>
+    </div>
+
+    <div class="module">Module 2 – Les bases des réseaux sociaux
+      <div class="dashboard" id="t2">Temps vidéo : 0s</div>
+      <div class="progress"><div id="p2"></div></div>
+    </div>
+
+    <div class="module">Module 3 – Création de contenu efficace
+      <div class="dashboard" id="t3">Temps vidéo : 0s</div>
+      <div class="progress"><div id="p3"></div></div>
+    </div>
+
+    <div class="module">Module 4 – Lancer sa première stratégie
+      <div class="dashboard" id="t4">Temps vidéo : 0s</div>
+      <div class="progress"><div id="p4"></div></div>
+    </div>
 
     <button class="btn" onclick="finishChap1()">Terminer le chapitre 1 (+25% XP)</button>
     <div class="dashboard" id="xp">Expérience : 0%</div>
@@ -53,17 +70,51 @@
 
 </div>
 
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
 <script>
-  let paid = false;
+  const firebaseConfig = {
+    apiKey: "AIzaSyDhTM5P1OngbZtdAj2lSgesShhoBjXhNsY",
+    authDomain: "gc-digital-93913.firebaseapp.com",
+    projectId: "gc-digital-93913",
+    storageBucket: "gc-digital-93913.firebasestorage.app",
+    messagingSenderId: "810132792036",
+    appId: "1:810132792036:web:3bb4859f8d045163df82f1"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+
+
+<!-- 🔐 ACCÈS PAYANT -->
+<script>
+auth.onAuthStateChanged(async (user) => {
+  if (!user) {
+    document.getElementById("content").style.display = "none";
+    return;
+  }
+
+  const doc = await db.collection("users").doc(user.uid).get();
+
+  if (doc.exists && doc.data().isPaid === true) {
+    document.getElementById("content").style.display = "block";
+  } else {
+    document.getElementById("content").style.display = "none";
+    alert("Accès réservé aux membres GC.Digital");
+  }
+});
+</script>
+
+
+<!-- 📊 XP & TIMER (TON CODE, GARDÉ) -->
+<script>
   let xp = 0;
   let time = [0,0,0,0];
-
-  function pay() {
-    // Stripe sera branché ici
-    paid = true;
-    document.getElementById('content').style.display = 'block';
-    window.scrollTo(0,600);
-  }
 
   function finishChap1() {
     xp = 25;
