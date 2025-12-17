@@ -1,136 +1,133 @@
-// Stack : Next.js (React) + Tailwind + Firebase (Auth + Firestore) + Stripe
-// Ce fichier représente une base fonctionnelle (MVP) de la plateforme GC.digital
-
-// =========================
-// 1. UI – Page principale
-// =========================
+// GC.digital – Plateforme de formation premium
+// Style inspiré du luxe (minimal, aéré, typographie forte) à la Louis Vuitton
+// Stack : Next.js + React + Tailwind + Firebase + Stripe
 
 import { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
-import { loadStripe } from "@stripe/stripe-js";
-
-const stripePromise = loadStripe("STRIPE_PUBLIC_KEY");
 
 export default function Home() {
   const [user, setUser] = useState(null);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (u) => setUser(u));
   }, []);
 
-  const handleCheckout = async () => {
-    const stripe = await stripePromise;
-    await stripe.redirectToCheckout({
-      sessionId: "STRIPE_SESSION_ID",
-    });
-  };
-
   return (
-    <main className="min-h-screen bg-black text-white flex flex-col items-center px-6">
-      {/* Brand */}
-      <section className="text-center mt-20 max-w-3xl">
-        <h1 className="text-5xl font-bold tracking-wide">GC.digital</h1>
-        <p className="text-gray-300 mt-6 text-lg">
-          La formation GC.digital est conçue pour les débutants qui se sentent
-          perdus. Une méthode claire, simple et structurée pour comprendre et
-          réussir dans le marketing digital.
+    <main className="min-h-screen bg-white text-black font-light">
+      {/* HEADER */}
+      <header className="border-b border-neutral-200 px-10 py-6 flex justify-between items-center">
+        <h1 className="text-xl tracking-[0.3em] uppercase">GC.digital</h1>
+        <nav className="space-x-8 text-sm">
+          <span>Formation</span>
+          <span>Programme</span>
+          <span>Contact</span>
+        </nav>
+      </header>
+
+      {/* HERO */}
+      <section className="text-center px-6 py-28 max-w-4xl mx-auto">
+        <h2 className="text-5xl mb-8 leading-tight">
+          Explorez une méthode claire pour réussir
+          <br />
+          dans le marketing digital
+        </h2>
+        <p className="text-neutral-600 max-w-2xl mx-auto">
+          GC.digital est une formation pensée pour les débutants qui se sentent
+          perdus. Une structure simple, élégante et progressive pour construire
+          une stratégie rentable.
         </p>
       </section>
 
-      {/* Pricing */}
-      {!user && (
-        <section className="mt-14 bg-zinc-900 p-8 rounded-2xl shadow-xl">
-          <p className="text-3xl font-bold">198,99 €</p>
-          <button
-            onClick={handleCheckout}
-            className="mt-6 w-full bg-white text-black py-3 rounded-xl font-semibold hover:opacity-90"
-          >
-            S'inscrire et débloquer la formation
-          </button>
-        </section>
-      )}
+      {/* PROGRAMME */}
+      <section className="max-w-5xl mx-auto px-6 pb-32">
+        <Chapter
+          title="Chapitre 1 : niveau débutant"
+          modules={[
+            "Les bases du marketing digital",
+            "Les bases des réseaux sociaux",
+            "La création de contenus efficaces",
+            "Lancer sa première stratégie",
+          ]}
+          unlocked={true}
+        />
 
-      {/* Formation */}
-      {user && (
-        <section className="mt-16 w-full max-w-4xl">
-          {[1, 2, 3, 4].map((chapter) => (
-            <Chapter key={chapter} index={chapter} />
-          ))}
-        </section>
-      )}
+        <Chapter
+          title="Chapitre 2 : niveau intermédiaire"
+          modules={[
+            "Stratégie digitale claire et rentable",
+            "Contenu qui attire et positionne",
+            "Générer du trafic qualifié",
+            "Transformer l'audience en clients",
+          ]}
+          unlocked={false}
+        />
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-neutral-200 py-10 text-center text-xs text-neutral-500">
+        © GC.digital — Tous droits réservés
+      </footer>
     </main>
   );
 }
 
 // =========================
-// 2. Chapitre
+// Chapitre
 // =========================
 
-function Chapter({ index }) {
-  const [xp, setXp] = useState(0);
-  const unlocked = index === 1 || xp >= 100;
-
+function Chapter({ title, modules, unlocked }) {
   return (
-    <div className={`mb-10 p-6 rounded-2xl ${unlocked ? "bg-zinc-900" : "bg-zinc-800 opacity-40"}`}>
-      <h2 className="text-2xl font-bold">Chapitre {index}</h2>
+    <div className="mb-24">
+      <h3 className="text-3xl mb-10">{title}</h3>
 
-      {/* Modules */}
-      <div className="mt-4 space-y-3">
-        {[1, 2, 3, 4].map((m) => (
-          <Module key={m} locked={!unlocked} />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {modules.map((module, i) => (
+          <Module
+            key={i}
+            title={module}
+            index={i + 1}
+            locked={!unlocked}
+          />
         ))}
       </div>
 
       {/* XP Dashboard */}
-      <div className="mt-6">
-        <p className="text-sm text-gray-400">Progression du chapitre</p>
-        <div className="w-full bg-zinc-700 rounded-full h-3 mt-2">
-          <div
-            className="bg-white h-3 rounded-full transition-all"
-            style={{ width: `${xp}%` }}
-          />
+      <div className="mt-12">
+        <p className="text-xs uppercase tracking-widest text-neutral-500">
+          Progression du chapitre
+        </p>
+        <div className="w-full bg-neutral-200 h-[2px] mt-4">
+          <div className="bg-black h-[2px] w-1/4" />
         </div>
-        <p className="text-sm mt-2">+25% XP par chapitre terminé</p>
+        <p className="text-xs mt-4 text-neutral-500">
+          +25% d'expérience après validation du chapitre
+        </p>
       </div>
     </div>
   );
 }
 
 // =========================
-// 3. Module
+// Module
 // =========================
 
-function Module({ locked }) {
-  const [time, setTime] = useState(0);
-
-  useEffect(() => {
-    if (!locked) {
-      const interval = setInterval(() => setTime((t) => t + 1), 60000);
-      return () => clearInterval(interval);
-    }
-  }, [locked]);
-
+function Module({ title, index, locked }) {
   return (
-    <div className="bg-black p-4 rounded-xl flex justify-between items-center">
-      <div>
-        <p className="font-medium">Module</p>
-        <p className="text-xs text-gray-400">Temps regardé : {time} min</p>
+    <div
+      className={`p-8 border border-neutral-200 transition ${
+        locked ? "opacity-40" : "hover:border-black"
+      }`}
+    >
+      <p className="text-xs uppercase tracking-widest text-neutral-500">
+        Module {index}
+      </p>
+      <h4 className="text-xl mt-4 mb-6">{title}</h4>
+
+      <div className="flex justify-between items-center text-xs text-neutral-500">
+        <span>Temps regardé : 0 min</span>
+        {locked && <span>Bloqué</span>}
       </div>
-      {locked && <span className="text-xs text-red-400">Bloqué</span>}
     </div>
   );
 }
-
-// =========================
-// 4. Sécurité & logique
-// =========================
-// - Accès conditionné à Auth Firebase
-// - Firestore stocke :
-//   - paiement : true/false
-//   - chapitre_actuel
-//   - temps_par_module
-// - Stripe Webhook valide l'accès
-// - Chapitre suivant bloqué tant que XP < 100
