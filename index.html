@@ -7,202 +7,212 @@
 
 <style>
 :root{
---blue-bg1:#0a4dff;
---blue-bg2:#1e7bff;
---blue-bg3:#5fa8ff;
---black:#000000;
---white:#ffffff;
---red:#e53935;
---orange:#fb8c00;
---green:#43a047;
+--blue:#0a4dff;
+--blue-soft:#eaf1ff;
+--black:#000;
+--gray:#f6f6f6;
 }
 
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
 
 body{
-min-height:100vh;
-background:linear-gradient(135deg,var(--blue-bg1),var(--blue-bg2),var(--blue-bg3));
+background:var(--blue-soft);
 color:var(--black);
-padding:30px;
 }
 
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 40px;
+border-bottom:1px solid #ddd;
+background:white;
+}
+nav .logo{
+font-size:1.8rem;
+letter-spacing:2px;
+font-weight:600;
+}
+nav .nav-right{
+font-size:1rem;
+display:flex;
+gap:25px;
+}
+
+/* HERO */
 header{
-background:var(--white);
-border-radius:20px;
-padding:80px 30px;
+text-align:center;
+padding:110px 20px 80px;
+background:white;
+}
+header h1{
+font-size:3.2rem;
+margin-bottom:25px;
+}
+header p{
+max-width:850px;
+margin:0 auto;
+font-size:1.2rem;
+line-height:1.7;
+}
+
+main{max-width:1300px;margin:80px auto;padding:0 30px}
+
+h2{
+font-size:2.3rem;
 text-align:center;
 margin-bottom:60px;
 }
 
-header h1{
-font-size:3.4rem;
-text-decoration:underline;
-}
-
-header p{
-max-width:900px;
-margin:25px auto 0;
-font-size:1.15rem;
-line-height:1.6;
-}
-
-main{max-width:1200px;margin:0 auto}
-
-h2{
-text-align:center;
-font-size:2.2rem;
-margin-bottom:30px;
-text-decoration:underline;
-}
-
-h3{
-margin-bottom:10px;
-text-decoration:underline;
-}
-
 .chapter{
-background:var(--white);
-border-radius:20px;
-padding:40px 30px;
-margin-bottom:50px;
+margin-bottom:100px;
 }
 
 .modules{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:40px;
 }
 
 .module{
-border:1px solid #ddd;
-border-radius:16px;
-padding:20px;
+background:white;
+border-radius:0;
 }
 
-iframe{
+.module iframe{
 width:100%;
-height:210px;
+height:220px;
 border:none;
-border-radius:12px;
-margin-bottom:10px;
+}
+
+.module h3{
+font-size:1.2rem;
+padding:20px;
 }
 
 progress{
 width:100%;
-height:16px;
+height:6px;
 appearance:none;
 }
+progress::-webkit-progress-bar{background:#ddd}
+progress.red::-webkit-progress-value{background:#d32f2f}
+progress.orange::-webkit-progress-value{background:#f57c00}
+progress.green::-webkit-progress-value{background:#388e3c}
 
-progress::-webkit-progress-bar{
-background:#eee;
-border-radius:10px;
+.dashboard{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
 }
 
-progress.red::-webkit-progress-value{background:var(--red)}
-progress.orange::-webkit-progress-value{background:var(--orange)}
-progress.green::-webkit-progress-value{background:var(--green)}
+.card{
+background:white;
+padding:30px;
+}
 
 .btn{
+margin-top:20px;
 width:100%;
 padding:14px;
-border:none;
-border-radius:30px;
-background:var(--black);
-color:var(--white);
+border:1px solid black;
+background:white;
 font-size:1rem;
 cursor:pointer;
 }
 
 footer{
-background:var(--white);
-border-radius:20px;
+border-top:1px solid #ddd;
 text-align:center;
-padding:30px;
+padding:40px;
+background:white;
 }
 
-@media(max-width:600px){
-header h1{font-size:2.6rem}
+@media(max-width:700px){
+header h1{font-size:2.4rem}
 }
 </style>
 </head>
 <body>
 
+<nav>
+<div class="logo">GC.digital</div>
+<div class="nav-right">
+<div>Connexion</div>
+<div>Contact</div>
+</div>
+</nav>
+
 <header>
-<h1>GC.digital</h1>
+<h1>Formation Marketing Digital</h1>
 <p>
-GC.digital est une formation complète en <strong>marketing digital</strong> destinée aux débutants
-qui se sentent perdus. La formation explique le marketing comme un système clair et structuré
-pour apprendre étape par étape.
+GC.digital est une formation conçue pour les débutants qui se sentent perdus.
+Elle enseigne le marketing digital comme un système structuré : stratégie,
+contenu, publicité et analyse de performance.
 </p>
 </header>
 
 <main>
 
-<!-- PAYWALL -->
 <section class="chapter" id="paywall" style="text-align:center">
-<h2>Accès à la formation</h2>
-<p>Paiement et inscription obligatoires avant d’accéder au contenu.</p>
-<form id="authForm" style="max-width:400px;margin:30px auto">
-<input required type="email" placeholder="Email" style="width:100%;padding:12px;margin-bottom:10px">
-<input required type="password" placeholder="Mot de passe" style="width:100%;padding:12px;margin-bottom:15px">
-<button class="btn">Payer & créer mon compte</button>
+<h2>Accès privé à la formation</h2>
+<p>Paiement et création de compte obligatoires</p>
+<form id="authForm" style="max-width:420px;margin:40px auto">
+<input required type="email" placeholder="Email" style="width:100%;padding:14px;margin-bottom:12px">
+<input required type="password" placeholder="Mot de passe" style="width:100%;padding:14px;margin-bottom:20px">
+<button class="btn">Payer et accéder à la formation</button>
 </form>
 </section>
 
 <div id="formation" style="display:none">
 
-<!-- DASHBOARD -->
 <section class="chapter">
 <h2>Dashboard élève</h2>
-<div class="modules">
-<div class="module"><h3>Niveau</h3><p id="level">Débutant</p></div>
-<div class="module"><h3>Progression globale</h3><progress id="globalProgress" value="0" max="100"></progress><p id="progressText">0 %</p></div>
-<div class="module"><h3>Certificat</h3><p id="cert">Bloqué (100 % requis)</p></div>
-</div>
-</section>
-
-<!-- CHAPITRE 1 -->
-<section class="chapter">
-<h2>Chapitre 1 – Fondamentaux</h2>
-<div class="modules">
-<div class="module"><h3>Base du marketing digital</h3><iframe src="https://www.youtube.com/embed/VeuspvV7DCg"></iframe><progress id="m1" value="0" max="100"></progress></div>
-<div class="module"><h3>Réseaux sociaux pour débutants</h3><iframe src="https://www.youtube.com/embed/nm_Lh_731Ow"></iframe><progress id="m2" value="0" max="100"></progress></div>
-<div class="module"><h3>Création de contenu efficace</h3><iframe src="https://www.youtube.com/embed/vPLRI3lE5sM"></iframe><progress id="m3" value="0" max="100"></progress></div>
-<div class="module"><h3>Lancer sa première stratégie</h3><iframe src="https://www.youtube.com/embed/v3sRh0z1M40"></iframe><progress id="m4" value="0" max="100"></progress></div>
+<div class="dashboard">
+<div class="card"><h3>Niveau</h3><p id="level">Débutant</p></div>
+<div class="card"><h3>Progression</h3><progress id="globalProgress" value="0" max="100"></progress><p id="progressText">0 %</p></div>
+<div class="card"><h3>Certificat</h3><p id="cert">Bloqué</p></div>
 </div>
 </section>
 
 <section class="chapter">
-<h2>Expérience – Fin Chapitre 1</h2>
+<h2>Chapitre 1 — Fondamentaux</h2>
 <div class="modules">
-<div class="module"><p>+25 % d’expérience</p></div>
-<div class="module"><button class="btn" onclick="validateChapter(25)">Valider Chapitre 1</button></div>
+<div class="module"><iframe src="https://www.youtube.com/embed/VeuspvV7DCg"></iframe><h3>Base du marketing digital</h3><progress id="m1" value="0" max="100"></progress></div>
+<div class="module"><iframe src="https://www.youtube.com/embed/nm_Lh_731Ow"></iframe><h3>Réseaux sociaux pour débutants</h3><progress id="m2" value="0" max="100"></progress></div>
+<div class="module"><iframe src="https://www.youtube.com/embed/vPLRI3lE5sM"></iframe><h3>Création de contenu efficace</h3><progress id="m3" value="0" max="100"></progress></div>
+<div class="module"><iframe src="https://www.youtube.com/embed/v3sRh0z1M40"></iframe><h3>Lancer sa première stratégie</h3><progress id="m4" value="0" max="100"></progress></div>
 </div>
 </section>
 
-<!-- CHAPITRE 2 -->
+<section class="chapter">
+<h2>Validation du chapitre</h2>
+<div class="dashboard">
+<div class="card"><p>+25 % d'expérience</p></div>
+<div class="card"><button class="btn" onclick="validateChapter(25)">Valider Chapitre 1</button></div>
+</div>
+</section>
+
 <section class="chapter" id="ch2" style="display:none">
-<h2>Chapitre 2 – Intermédiaire</h2>
+<h2>Chapitre 2 — Intermédiaire</h2>
 <div class="modules">
 <div class="module"><h3>Construire une vraie stratégie digitale</h3></div>
-<div class="module"><h3>Marketing de contenu & branding</h3></div>
+<div class="module"><h3>Marketing de contenu et branding</h3></div>
 <div class="module"><h3>Publicité en ligne</h3></div>
-<div class="module"><h3>Analyse & optimisation</h3></div>
-</div>
-</section>
-
-<section class="chapter" id="xp2" style="display:none">
-<h2>Expérience – Fin Chapitre 2</h2>
-<div class="modules">
-<div class="module"><p>+25 % d’expérience</p></div>
-<div class="module"><button class="btn" onclick="validateChapter(100)">Valider Chapitre 2</button></div>
+<div class="module"><h3>Analyse et optimisation</h3></div>
 </div>
 </section>
 
 </div>
 </main>
 
-<footer>© 2025 GC.digital – Formation Marketing Digital</footer>
+<footer>© 2025 GC.digital</footer>
 
 <script>
 let progress = localStorage.getItem('progress') ? parseInt(localStorage.getItem('progress')) : 0;
@@ -215,29 +225,26 @@ function colorize(p){
 }
 
 function updateDashboard(){
- const gp = document.getElementById('globalProgress');
- gp.value = progress;
+ const gp=document.getElementById('globalProgress');
+ gp.value=progress;
  colorize(gp);
- document.getElementById('progressText').innerText = progress + ' %';
- if(progress >= 25) document.getElementById('ch2').style.display='block';
- if(progress >= 50) document.getElementById('xp2').style.display='block';
- if(progress >= 100){
-  document.getElementById('cert').innerText='Certificat débloqué';
+ document.getElementById('progressText').innerText=progress+' %';
+ if(progress>=25) document.getElementById('ch2').style.display='block';
+ if(progress>=100){
+  document.getElementById('cert').innerText='Débloqué';
   document.getElementById('level').innerText='Débutant acquis';
  }
 }
 
 function validateChapter(val){
- progress = val;
+ progress=val;
  localStorage.setItem('progress',progress);
  updateDashboard();
 }
 
 ['m1','m2','m3','m4'].forEach(id=>{
  let p=document.getElementById(id);let v=0;
- setInterval(()=>{
-  if(v<100){v++;p.value=v;colorize(p)}
- },900);
+ setInterval(()=>{if(v<100){v++;p.value=v;colorize(p)}},900);
 });
 
 document.getElementById('authForm').addEventListener('submit',e=>{
