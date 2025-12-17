@@ -1,219 +1,84 @@
-<!-- GC.digital – VERSION STATIQUE LUXE (compatible GitHub Pages) -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <title>GC.Digital</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GC.digital</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #ffffff;
-      color: #000000;
-      line-height: 1.6;
-    }
-    header {
-      border-bottom: 1px solid #e5e5e5;
-      padding: 24px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 {
-      font-size: 18px;
-      letter-spacing: 0.35em;
-      font-weight: 500;
-      text-transform: uppercase;
-    }
-    nav a {
-      margin-left: 32px;
-      font-size: 13px;
-      text-decoration: none;
-      color: black;
-    }
-    .hero {
-      text-align: center;
-      padding: 140px 20px 120px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .hero h2 {
-      font-size: 48px;
-      font-weight: 400;
-      margin-bottom: 32px;
-    }
-    .hero p {
-      font-size: 16px;
-      color: #555;
-      max-width: 640px;
-      margin: auto;
-    }
-    .programme {
-      max-width: 1100px;
-      margin: auto;
-      padding: 0 40px 160px;
-    }
-    .chapter {
-      margin-bottom: 120px;
-    }
-    .chapter h3 {
-      font-size: 32px;
-      font-weight: 400;
-      margin-bottom: 60px;
-    }
-    .modules {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-    }
-    .module {
-      border: 1px solid #e5e5e5;
-      padding: 40px;
-      transition: border 0.3s ease;
-    }
-    .module:hover {
-      border-color: black;
-    }
-    .module.locked {
-      opacity: 0.4;
-    }
-    .module span {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #777;
-    }
-    .module h4 {
-      font-size: 20px;
-      font-weight: 400;
-      margin: 20px 0 40px;
-    }
-    .module .meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-      color: #777;
-    }
-    .xp {
-      margin-top: 60px;
-    }
-    .xp p {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #777;
-    }
-    .xp-bar {
-      height: 2px;
-      background: #e5e5e5;
-      margin: 16px 0;
-      position: relative;
-    }
-    .xp-bar::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 2px;
-      width: 25%;
-      background: black;
-    }
-    footer {
-      border-top: 1px solid #e5e5e5;
-      text-align: center;
-      padding: 40px;
-      font-size: 12px;
-      color: #777;
-    }
+    body { margin:0; font-family:Inter, sans-serif; background:#fff; color:#000; }
+    header { padding:80px 20px; text-align:center; border-bottom:1px solid #eee; }
+    h1 { font-family:'Playfair Display', serif; font-size:56px; margin:0; }
+    p { max-width:700px; margin:20px auto; color:#555; }
+    .container { max-width:1000px; margin:60px auto; padding:0 20px; }
+    .chapter { margin-bottom:80px; }
+    .chapter h2 { font-family:'Playfair Display', serif; font-size:36px; }
+    .module { border:1px solid #e5e5e5; padding:24px; margin-top:20px; }
+    .progress { height:6px; background:#eee; margin-top:10px; }
+    .progress div { height:6px; background:#000; width:0%; }
+    .locked { opacity:0.4; pointer-events:none; }
+    .btn { margin-top:30px; padding:14px 28px; border:none; background:#000; color:#fff; cursor:pointer; }
+    .dashboard { margin-top:15px; font-size:14px; color:#666; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>GC.digital</h1>
-  <nav>
-    <a href="#">Formation</a>
-    <a href="#">Programme</a>
-    <a href="#">Contact</a>
-  </nav>
+  <h1>GC.Digital</h1>
+  <p>La formation GC.Digital est faite pour que les débutants qui se sentent un peu perdus. La formation est simple et claire pour passer à l'action.</p>
+  <button class="btn" onclick="pay()">Accéder à la formation (Stripe)</button>
 </header>
 
-<section class="hero">
-  <h2>Explorez une méthode claire pour réussir<br>dans le marketing digital</h2>
-  <p>
-    GC.digital est une formation pensée pour les débutants qui se sentent perdus.
-    Une structure simple, élégante et progressive pour construire une stratégie rentable.
-  </p>
-</section>
+<div class="container" id="content" style="display:none">
 
-<section class="programme">
+  <div class="chapter" id="chap1">
+    <h2>Chapitre 1 – Les fondations</h2>
 
-  <div class="chapter">
-    <h3>Chapitre 1 : niveau débutant</h3>
-    <div class="modules">
-      <div class="module">
-        <span>Module 1</span>
-        <h4>Les bases du marketing digital</h4>
-        <div class="meta"><span>Temps regardé : 0 min</span></div>
-      </div>
-      <div class="module">
-        <span>Module 2</span>
-        <h4>Les bases des réseaux sociaux</h4>
-        <div class="meta"><span>Temps regardé : 0 min</span></div>
-      </div>
-      <div class="module">
-        <span>Module 3</span>
-        <h4>La création de contenus efficaces</h4>
-        <div class="meta"><span>Temps regardé : 0 min</span></div>
-      </div>
-      <div class="module">
-        <span>Module 4</span>
-        <h4>Lancer sa première stratégie</h4>
-        <div class="meta"><span>Temps regardé : 0 min</span></div>
-      </div>
-    </div>
-    <div class="xp">
-      <p>Progression du chapitre</p>
-      <div class="xp-bar"></div>
-      <p>+25% d'expérience après validation du chapitre</p>
-    </div>
+    <div class="module">Module 1 – Les bases du marketing digital<div class="dashboard" id="t1">Temps vidéo : 0s</div><div class="progress"><div id="p1"></div></div></div>
+    <div class="module">Module 2 – Les bases des réseaux sociaux<div class="dashboard" id="t2">Temps vidéo : 0s</div><div class="progress"><div id="p2"></div></div></div>
+    <div class="module">Module 3 – Création de contenu efficace<div class="dashboard" id="t3">Temps vidéo : 0s</div><div class="progress"><div id="p3"></div></div></div>
+    <div class="module">Module 4 – Lancer sa première stratégie<div class="dashboard" id="t4">Temps vidéo : 0s</div><div class="progress"><div id="p4"></div></div></div>
+
+    <button class="btn" onclick="finishChap1()">Terminer le chapitre 1 (+25% XP)</button>
+    <div class="dashboard" id="xp">Expérience : 0%</div>
   </div>
 
-  <div class="chapter">
-    <h3>Chapitre 2 : niveau intermédiaire</h3>
-    <div class="modules">
-      <div class="module locked">
-        <span>Module 5</span>
-        <h4>Stratégie digitale claire et rentable</h4>
-        <div class="meta"><span>Bloqué</span></div>
-      </div>
-      <div class="module locked">
-        <span>Module 6</span>
-        <h4>Contenu qui attire et positionne</h4>
-        <div class="meta"><span>Bloqué</span></div>
-      </div>
-      <div class="module locked">
-        <span>Module 7</span>
-        <h4>Générer du trafic qualifié</h4>
-        <div class="meta"><span>Bloqué</span></div>
-      </div>
-      <div class="module locked">
-        <span>Module 8</span>
-        <h4>Transformer l'audience en clients</h4>
-        <div class="meta"><span>Bloqué</span></div>
-      </div>
-    </div>
+  <div class="chapter locked" id="chap2">
+    <h2>Chapitre 2 – Stratégie & Conversion</h2>
+    <div class="module">Module 5 – Stratégie digitale claire et rentable</div>
+    <div class="module">Module 6 – Contenu qui attire et positionne</div>
+    <div class="module">Module 7 – Générer du trafic qualifié</div>
+    <div class="module">Module 8 – Transformer l'audience en client</div>
   </div>
 
-</section>
+</div>
 
-<footer>
-  © GC.digital — Tous droits réservés
-</footer>
+<script>
+  let paid = false;
+  let xp = 0;
+  let time = [0,0,0,0];
+
+  function pay() {
+    // Stripe sera branché ici
+    paid = true;
+    document.getElementById('content').style.display = 'block';
+    window.scrollTo(0,600);
+  }
+
+  function finishChap1() {
+    xp = 25;
+    document.getElementById('xp').innerText = 'Expérience : ' + xp + '%';
+    document.getElementById('chap2').classList.remove('locked');
+  }
+
+  setInterval(() => {
+    for(let i=0;i<4;i++){
+      time[i]++;
+      document.getElementById('t'+(i+1)).innerText = 'Temps vidéo : '+time[i]+'s';
+      document.getElementById('p'+(i+1)).style.width = (time[i]%100)+'%';
+    }
+  },1000);
+</script>
 
 </body>
 </html>
