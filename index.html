@@ -1,296 +1,38 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>GC.digital – Formation Marketing Digital</title>
-
-<style>
-:root{
---blue:#0a4dff;
---blue-soft:#eaf1ff;
---black:#000;
---gray:#f6f6f6;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-background:var(--blue-soft);
-color:var(--black);
-}
-
-/* NAVBAR */
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:22px 40px;
-border-bottom:1px solid #ddd;
-background:white;
-}
-nav .logo{
-font-size:1.8rem;
-letter-spacing:2px;
-font-weight:600;
-}
-nav .nav-right{
-font-size:1rem;
-display:flex;
-gap:25px;
-}
-
-/* HERO */
-header{
-text-align:center;
-padding:110px 20px 80px;
-background:white;
-}
-header h1{
-font-size:3.2rem;
-margin-bottom:25px;
-}
-header p{
-max-width:850px;
-margin:0 auto;
-font-size:1.2rem;
-line-height:1.7;
-}
-
-main{max-width:1300px;margin:80px auto;padding:0 30px}
-
-h2{
-font-size:2.3rem;
-text-align:center;
-margin-bottom:60px;
-}
-
-.chapter{
-margin-bottom:100px;
-}
-
-.modules{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:40px;
-}
-
-.module{
-background:white;
-border-radius:0;
-}
-
-.module iframe{
-width:100%;
-height:220px;
-border:none;
-}
-
-.module h3{
-font-size:1.2rem;
-padding:20px;
-}
-
-progress{
-width:100%;
-height:6px;
-appearance:none;
-}
-progress::-webkit-progress-bar{background:#ddd}
-progress.red::-webkit-progress-value{background:#d32f2f}
-progress.orange::-webkit-progress-value{background:#f57c00}
-progress.green::-webkit-progress-value{background:#388e3c}
-
-.dashboard{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:40px;
-}
-
-.card{
-background:white;
-padding:30px;
-}
-
-.btn{
-margin-top:20px;
-width:100%;
-padding:14px;
-border:1px solid black;
-background:white;
-font-size:1rem;
-cursor:pointer;
-}
-
-footer{
-border-top:1px solid #ddd;
-text-align:center;
-padding:40px;
-background:white;
-}
-
-@media(max-width:700px){
-header h1{font-size:2.4rem}
-}
-</style>
-</head>
-<body>
-
-<nav>
-<div class="logo">GC.digital</div>
-<div class="nav-right">
-<div>Connexion</div>
-<div>Contact</div>
-</div>
-</nav>
-
-<header>
-<h1>Formation Marketing Digital</h1>
-<p>
-GC.digital est une formation conçue pour les débutants qui se sentent perdus.
-Elle enseigne le marketing digital comme un système structuré : stratégie,
-contenu, publicité et analyse de performance.
-</p>
-</header>
-
-<main>
-
-<section class="chapter" id="paywall" style="text-align:center">
-<h2>Accès privé à la formation</h2>
-<p>Paiement et création de compte obligatoires</p>
-<form id="authForm" style="max-width:420px;margin:40px auto">
-<input required type="email" placeholder="Email" style="width:100%;padding:14px;margin-bottom:12px">
-<input required type="password" placeholder="Mot de passe" style="width:100%;padding:14px;margin-bottom:20px">
-<button class="btn">Payer et accéder à la formation</button>
-</form>
-</section>
-
-<div id="formation" style="display:none">
-
-<section class="chapter">
-<h2>Dashboard élève</h2>
-<div class="dashboard">
-<div class="card"><h3>Niveau</h3><p id="level">Débutant</p></div>
-<div class="card"><h3>Progression</h3><progress id="globalProgress" value="0" max="100"></progress><p id="progressText">0 %</p></div>
-<div class="card"><h3>Certificat</h3><p id="cert">Bloqué</p></div>
-</div>
-</section>
-
-<section class="chapter">
-<h2>Chapitre 1 — Fondamentaux</h2>
-<div class="modules">
-<div class="module"><iframe src="https://www.youtube.com/embed/VeuspvV7DCg"></iframe><h3>Base du marketing digital</h3><progress id="m1" value="0" max="100"></progress></div>
-<div class="module"><iframe src="https://www.youtube.com/embed/nm_Lh_731Ow"></iframe><h3>Réseaux sociaux pour débutants</h3><progress id="m2" value="0" max="100"></progress></div>
-<div class="module"><iframe src="https://www.youtube.com/embed/vPLRI3lE5sM"></iframe><h3>Création de contenu efficace</h3><progress id="m3" value="0" max="100"></progress></div>
-<div class="module"><iframe src="https://www.youtube.com/embed/v3sRh0z1M40"></iframe><h3>Lancer sa première stratégie</h3><progress id="m4" value="0" max="100"></progress></div>
-</div>
-</section>
-
-<section class="chapter">
-<h2>Validation du chapitre</h2>
-<div class="dashboard">
-<div class="card"><p>+25 % d'expérience</p></div>
-<div class="card"><button class="btn" onclick="validateChapter(25)">Valider Chapitre 1</button></div>
-</div>
-</section>
-
-<section class="chapter" id="ch2" style="display:none">
-<h2>Chapitre 2 — Intermédiaire</h2>
-<div class="modules">
-<div class="module"><h3>Construire une vraie stratégie digitale</h3></div>
-<div class="module"><h3>Marketing de contenu et branding</h3></div>
-<div class="module"><h3>Publicité en ligne</h3></div>
-<div class="module"><h3>Analyse et optimisation</h3></div>
-</div>
-</section>
-
-</div>
-</main>
-
-<footer>© 2025 GC.digital</footer>
-
-<script>
-let progress = localStorage.getItem('progress') ? parseInt(localStorage.getItem('progress')) : 0;
-
-function colorize(p){
- p.classList.remove('red','orange','green');
- if(p.value < 20) p.classList.add('red');
- else if(p.value < 50) p.classList.add('orange');
- else p.classList.add('green');
-}
-
-function updateDashboard(){
- const gp=document.getElementById('globalProgress');
- gp.value=progress;
- colorize(gp);
- document.getElementById('progressText').innerText=progress+' %';
- if(progress>=25) document.getElementById('ch2').style.display='block';
- if(progress>=100){
-  document.getElementById('cert').innerText='Débloqué';
-  document.getElementById('level').innerText='Débutant acquis';
- }
-}
-
-function validateChapter(val){
- progress=val;
- localStorage.setItem('progress',progress);
- updateDashboard();
-}
-
-['m1','m2','m3','m4'].forEach(id=>{
- let p=document.getElementById(id);let v=0;
- setInterval(()=>{if(v<100){v++;p.value=v;colorize(p)}},900);
-});
-
-document.getElementById('authForm').addEventListener('submit',e=>{
- e.preventDefault();
- document.getElementById('paywall').style.display='none';
- document.getElementById('formation').style.display='block';
- updateDashboard();
-});
-
-updateDashboard();
-</script>
-
-<!-- 🔥 FIREBASE CHECK ACCESS -->
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "TA_API_KEY",
-    authDomain: "TA_AUTH_DOMAIN",
-    projectId: "gc-digital-93913",
-    storageBucket: "TA_STORAGE_BUCKET",
-    messagingSenderId: "TA_MESSAGING_ID",
-    appId: "TA_APP_ID"
-  };
+const firebaseConfig = {
+  apiKey: "TA_API_KEY",
+  authDomain: "TA_AUTH_DOMAIN",
+  projectId: "gc-digital-93913",
+  storageBucket: "TA_STORAGE_BUCKET",
+  messagingSenderId: "TA_MESSAGING_ID",
+  appId: "TA_APP_ID"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-  const userId = "UQSs6eD3pdzVKemkNINS";
+// 🔑 ID DU USER (celui de Firestore)
+const userId = "UQSs6eD3pdzVKemkNINS";
 
-  async function checkAccess() {
-    const ref = doc(db, "users", userId);
-    const snap = await getDoc(ref);
+async function checkAccess() {
+  const ref = doc(db, "users", userId);
+  const snap = await getDoc(ref);
 
-    if (snap.exists() && snap.data().isPaid === true) {
-      document.body.style.display = "block";
-    } else {
-      document.body.innerHTML = "<h1>Accès réservé</h1>";
-    }
+  const paywall = document.getElementById("paywall");
+  const formation = document.getElementById("formation");
+
+  if (snap.exists() && snap.data().isPaid === true) {
+    paywall.style.display = "none";
+    formation.style.display = "block";
+    updateDashboard();
+  } else {
+    paywall.style.display = "block";
+    formation.style.display = "none";
   }
+}
 
-  checkAccess();
+checkAccess();
 </script>
-
-</body>
-</html>
-
-
