@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion – GC.Digital</title>
+</head>
+
+<body style="text-align:center; padding:50px; font-family:Arial">
+
+<h1>Connexion</h1>
+
+<input id="email" type="email" placeholder="Email"><br><br>
+<input id="password" type="password" placeholder="Mot de passe"><br><br>
+
+<button onclick="login()">Se connecter</button>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "TA_API_KEY",
+    authDomain: "gc-digital-93913.firebaseapp.com",
+    projectId: "gc-digital-93913",
+    storageBucket: "gc-digital-93913.appspot.com",
+    messagingSenderId: "810132792036",
+    appId: "TON_APP_ID"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+  async function login() {
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    try {
+      const cred = await auth.signInWithEmailAndPassword(email, password);
+      const uid = cred.user.uid;
+
+      const doc = await db.collection("users").doc(uid).get();
+
+      if (doc.exists && doc.data().isPaid === true) {
+        window.location.href = "index.html";
+      } else {
+        alert("Accès refusé");
+        auth.signOut();
+      }
+    } catch (e) {
+      alert(e.message);
+    }
+  }
+
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
+</script>
+
+</body>
+</html>
