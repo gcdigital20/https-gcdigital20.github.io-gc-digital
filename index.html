@@ -1,133 +1,219 @@
-// GC.digital – Plateforme de formation premium
-// Style inspiré du luxe (minimal, aéré, typographie forte) à la Louis Vuitton
-// Stack : Next.js + React + Tailwind + Firebase + Stripe
+<!-- GC.digital – VERSION STATIQUE LUXE (compatible GitHub Pages) -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GC.digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #000000;
+      line-height: 1.6;
+    }
+    header {
+      border-bottom: 1px solid #e5e5e5;
+      padding: 24px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 18px;
+      letter-spacing: 0.35em;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    nav a {
+      margin-left: 32px;
+      font-size: 13px;
+      text-decoration: none;
+      color: black;
+    }
+    .hero {
+      text-align: center;
+      padding: 140px 20px 120px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .hero h2 {
+      font-size: 48px;
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+    .hero p {
+      font-size: 16px;
+      color: #555;
+      max-width: 640px;
+      margin: auto;
+    }
+    .programme {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 40px 160px;
+    }
+    .chapter {
+      margin-bottom: 120px;
+    }
+    .chapter h3 {
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 60px;
+    }
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+    .module {
+      border: 1px solid #e5e5e5;
+      padding: 40px;
+      transition: border 0.3s ease;
+    }
+    .module:hover {
+      border-color: black;
+    }
+    .module.locked {
+      opacity: 0.4;
+    }
+    .module span {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #777;
+    }
+    .module h4 {
+      font-size: 20px;
+      font-weight: 400;
+      margin: 20px 0 40px;
+    }
+    .module .meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #777;
+    }
+    .xp {
+      margin-top: 60px;
+    }
+    .xp p {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #777;
+    }
+    .xp-bar {
+      height: 2px;
+      background: #e5e5e5;
+      margin: 16px 0;
+      position: relative;
+    }
+    .xp-bar::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 2px;
+      width: 25%;
+      background: black;
+    }
+    footer {
+      border-top: 1px solid #e5e5e5;
+      text-align: center;
+      padding: 40px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
 
-import { useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+<header>
+  <h1>GC.digital</h1>
+  <nav>
+    <a href="#">Formation</a>
+    <a href="#">Programme</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
 
-export default function Home() {
-  const [user, setUser] = useState(null);
+<section class="hero">
+  <h2>Explorez une méthode claire pour réussir<br>dans le marketing digital</h2>
+  <p>
+    GC.digital est une formation pensée pour les débutants qui se sentent perdus.
+    Une structure simple, élégante et progressive pour construire une stratégie rentable.
+  </p>
+</section>
 
-  useEffect(() => {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (u) => setUser(u));
-  }, []);
+<section class="programme">
 
-  return (
-    <main className="min-h-screen bg-white text-black font-light">
-      {/* HEADER */}
-      <header className="border-b border-neutral-200 px-10 py-6 flex justify-between items-center">
-        <h1 className="text-xl tracking-[0.3em] uppercase">GC.digital</h1>
-        <nav className="space-x-8 text-sm">
-          <span>Formation</span>
-          <span>Programme</span>
-          <span>Contact</span>
-        </nav>
-      </header>
-
-      {/* HERO */}
-      <section className="text-center px-6 py-28 max-w-4xl mx-auto">
-        <h2 className="text-5xl mb-8 leading-tight">
-          Explorez une méthode claire pour réussir
-          <br />
-          dans le marketing digital
-        </h2>
-        <p className="text-neutral-600 max-w-2xl mx-auto">
-          GC.digital est une formation pensée pour les débutants qui se sentent
-          perdus. Une structure simple, élégante et progressive pour construire
-          une stratégie rentable.
-        </p>
-      </section>
-
-      {/* PROGRAMME */}
-      <section className="max-w-5xl mx-auto px-6 pb-32">
-        <Chapter
-          title="Chapitre 1 : niveau débutant"
-          modules={[
-            "Les bases du marketing digital",
-            "Les bases des réseaux sociaux",
-            "La création de contenus efficaces",
-            "Lancer sa première stratégie",
-          ]}
-          unlocked={true}
-        />
-
-        <Chapter
-          title="Chapitre 2 : niveau intermédiaire"
-          modules={[
-            "Stratégie digitale claire et rentable",
-            "Contenu qui attire et positionne",
-            "Générer du trafic qualifié",
-            "Transformer l'audience en clients",
-          ]}
-          unlocked={false}
-        />
-      </section>
-
-      {/* FOOTER */}
-      <footer className="border-t border-neutral-200 py-10 text-center text-xs text-neutral-500">
-        © GC.digital — Tous droits réservés
-      </footer>
-    </main>
-  );
-}
-
-// =========================
-// Chapitre
-// =========================
-
-function Chapter({ title, modules, unlocked }) {
-  return (
-    <div className="mb-24">
-      <h3 className="text-3xl mb-10">{title}</h3>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {modules.map((module, i) => (
-          <Module
-            key={i}
-            title={module}
-            index={i + 1}
-            locked={!unlocked}
-          />
-        ))}
+  <div class="chapter">
+    <h3>Chapitre 1 : niveau débutant</h3>
+    <div class="modules">
+      <div class="module">
+        <span>Module 1</span>
+        <h4>Les bases du marketing digital</h4>
+        <div class="meta"><span>Temps regardé : 0 min</span></div>
       </div>
-
-      {/* XP Dashboard */}
-      <div className="mt-12">
-        <p className="text-xs uppercase tracking-widest text-neutral-500">
-          Progression du chapitre
-        </p>
-        <div className="w-full bg-neutral-200 h-[2px] mt-4">
-          <div className="bg-black h-[2px] w-1/4" />
-        </div>
-        <p className="text-xs mt-4 text-neutral-500">
-          +25% d'expérience après validation du chapitre
-        </p>
+      <div class="module">
+        <span>Module 2</span>
+        <h4>Les bases des réseaux sociaux</h4>
+        <div class="meta"><span>Temps regardé : 0 min</span></div>
+      </div>
+      <div class="module">
+        <span>Module 3</span>
+        <h4>La création de contenus efficaces</h4>
+        <div class="meta"><span>Temps regardé : 0 min</span></div>
+      </div>
+      <div class="module">
+        <span>Module 4</span>
+        <h4>Lancer sa première stratégie</h4>
+        <div class="meta"><span>Temps regardé : 0 min</span></div>
       </div>
     </div>
-  );
-}
+    <div class="xp">
+      <p>Progression du chapitre</p>
+      <div class="xp-bar"></div>
+      <p>+25% d'expérience après validation du chapitre</p>
+    </div>
+  </div>
 
-// =========================
-// Module
-// =========================
-
-function Module({ title, index, locked }) {
-  return (
-    <div
-      className={`p-8 border border-neutral-200 transition ${
-        locked ? "opacity-40" : "hover:border-black"
-      }`}
-    >
-      <p className="text-xs uppercase tracking-widest text-neutral-500">
-        Module {index}
-      </p>
-      <h4 className="text-xl mt-4 mb-6">{title}</h4>
-
-      <div className="flex justify-between items-center text-xs text-neutral-500">
-        <span>Temps regardé : 0 min</span>
-        {locked && <span>Bloqué</span>}
+  <div class="chapter">
+    <h3>Chapitre 2 : niveau intermédiaire</h3>
+    <div class="modules">
+      <div class="module locked">
+        <span>Module 5</span>
+        <h4>Stratégie digitale claire et rentable</h4>
+        <div class="meta"><span>Bloqué</span></div>
+      </div>
+      <div class="module locked">
+        <span>Module 6</span>
+        <h4>Contenu qui attire et positionne</h4>
+        <div class="meta"><span>Bloqué</span></div>
+      </div>
+      <div class="module locked">
+        <span>Module 7</span>
+        <h4>Générer du trafic qualifié</h4>
+        <div class="meta"><span>Bloqué</span></div>
+      </div>
+      <div class="module locked">
+        <span>Module 8</span>
+        <h4>Transformer l'audience en clients</h4>
+        <div class="meta"><span>Bloqué</span></div>
       </div>
     </div>
-  );
-}
+  </div>
+
+</section>
+
+<footer>
+  © GC.digital — Tous droits réservés
+</footer>
+
+</body>
+</html>
